@@ -1,0 +1,20 @@
+Enunciados
+==========
+
+Sujeto: Estudiante
+
+a) Realice 3 enunciados que sean verdaderos:
+
+    1) El estudiante es dedicado
+    2) El estudiante asiste a sus clases
+    3) El estudiante hace sus tareas
+
+b) Combine los enunciados en al menos 5 proposiciones, y diga si los nuevos
+   enunciados son verdaderos o falsos.
+
+    1) El estudiante es dedicado y asiste a sus clases - VERDADERO
+    2) El estudiante es dedicado o no hace sus tareas - VERDADERO
+    3) El estudiante no hace sus tareas ni asiste a sus clases - FALSO
+    4) El estudiante asiste a sus clases o hace sus tareas - VERDADERO
+    5) El estudiante ni es dedicado, no asiste a sus clases, ni
+       hace sus tareas - FALSO
