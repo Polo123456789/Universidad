@@ -23,19 +23,21 @@ var precio_final = 0
 //Mensajes de alerta para ingresar datos 
 var nombre = prompt("Ingrese su nombre, por favor")
 var edad = prompt("¿Cuantos años tiene? Ingrese solamente números ")
-
 var casado = prompt("¿Está casado actualmente?")
+
 //Comprobamos la edad del cónyuge, solamente si se está casado/a
 var edad_conyuge
-if("SI" == casado.toUpperCase()){
-  edad_conyuge = prompt("¿Que edad tiene su esposo/a?", "si/no")
+if ("SI" == casado.toUpperCase()) {
+    edad_conyuge = prompt("¿Que edad tiene su esposo/a?", "si/no")
 }
+
 //convirtiendo las edades ingresadas a números 
 var edad_numero = parseInt(edad)
 var edad_conyuge_numero = 0
+
 //convirtiendo la edad del cónyuge si se esta casado/a
-if("SI" == casado.toUpperCase()){
-  edad_conyuge_numero = parseInt(edad_conyuge)
+if ("SI" == casado.toUpperCase()) {
+    edad_conyuge_numero = parseInt(edad_conyuge)
 }
 
 var hijos = prompt("¿Tiene hijos o hijas?")
@@ -49,11 +51,12 @@ var cantidad_hijos
 
 //Aquí es donde debe de calcular los recargos y el valor final
 //Ejemplo (Debe completar los condicionales): Recargo por edad del asegurado 
-if(edad_numero>=18 && edad_numero<25){
-  //Calculamos el recargo en base a la edad 
-  recargo = precio_base * edad_18
-  //Sumamos todos los recargos que hemos obtenido
-  recargo_total = recargo_total + recargo
+if (edad_numero >= 18 && edad_numero < 25) {
+    //Calculamos el recargo en base a la edad 
+    recargo = precio_base * edad_18
+
+    //Sumamos todos los recargos que hemos obtenido
+    recargo_total = recargo_total + recargo
 }//aqui puede colocar un else if() con el siguiente rango
 
 /** 
@@ -62,11 +65,12 @@ if(edad_numero>=18 && edad_numero<25){
 
 /**
  * 3. Recargo por la cantidad de hijos 
- */ 
+ */
 
 
 precio_final = precio_base + recargo_total
+
 //Resultado
-alert ("Para el asegurado "+nombre)
-alert ("El recargo total sera de: "+recargo_total)
-alert ("El precio sera de: "+precio_final)
+alert("Para el asegurado " + nombre)
+alert("El recargo total sera de: " + recargo_total)
+alert("El precio sera de: " + precio_final)
