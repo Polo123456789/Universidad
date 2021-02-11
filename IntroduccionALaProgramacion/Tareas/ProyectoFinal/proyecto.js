@@ -7,7 +7,7 @@ const edad_18 = 0.1 // 10%
 const edad_25 = 0.2 // 20%
 const edad_50 = 0.3 // 30%
 
-const porcentaje_recargo_por_edad = (edad = 18) => {
+const porcentaje_recargo_por_edad = (edad) => {
     if (edad >= 18 && edad < 25) {
         return edad_18;
 
