@@ -74,3 +74,32 @@ const hijos = 0.2 // 20%
 
 Elimine las constantes que trataban con la edad de el cónyugue, ya que eran
 iguales a las de la edad de la persona.
+
+### Pasar datos a números directamente
+
+No me gusta para nada la notación húngara. Considero que solo hace el código
+mas difícil de leer. Me gusta que el código sea explicito, que transmita tanta
+información como sea posible, pero el colocar el tipo en la variable creo que
+es demasiado verboso.
+
+Considero que en lugar de:
+
+~~~js
+var edad = prompt("¿Cuantos años tiene? Ingrese solamente números ")
+var edad_numero = parseInt(edad)
+~~~
+
+Se puede aprovechar que javascript no es estrictamente typeado y se puede hacer
+esto:
+
+~~~js
+var edad = prompt("¿Cuantos años tiene? Ingrese solamente números ")
+var edad = parseInt(edad)
+~~~
+
+Pero la verdad es que no hay necesidad de modificar la edad una vez la leímos,
+así que considero la mejor alternativa la siguiente:
+
+~~~js
+const edad = parseInt(prompt("Cual es su edad?"));
+~~~
