@@ -20,6 +20,10 @@ Algoritmo
 Porcentaje por factores
 -----------------------
 
+Las posibles decisiones a tomar, usando la estructura que se tiene arriba, es
+unicamente el porcentaje por cada factor. Los porcentajes serian los
+siguientes:
+
 ### Edad
 
 | Edad  | Porcentaje |
