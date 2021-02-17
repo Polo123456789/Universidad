@@ -31,3 +31,6 @@ Diagramas de flujo
 Para crear los diagramas se puede utilizar [este
 sitio](https://www.diagrams.net/). A mi me gusta usar
 [este](https://app.code2flow.com/)
+
+![](Imagenes/df.png)
+![](Imagenes/df2.png)
