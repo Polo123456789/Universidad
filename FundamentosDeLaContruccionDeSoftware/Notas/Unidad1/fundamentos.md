@@ -247,11 +247,159 @@ Proceso Racional Unificado
 --------------------------
 
 Este proporciona un enfoque disciplinado para asignar tareas
-y responsabilidades dentro de una organización de desarrollo.
+y responsabilidades dentro de una organización de desarrollo. Este proceso es
+considerado pesado y preferiblemente aplicable a grandes equipos de desarrollo
+y grandes proyectos.
+
+Esta busca que todo el equipo siga las siguientes mejores practicas:
+
+1. Desarrollar software iterativamente
+2. Gestionar requisitos
+3. Usar arquitecturas basadas en componentes
+4. Utilizar software de modelado visual
+5. Verificar la calidad del software
+
+Este se puede separar en 2 ejes:
+
+* **Horizontal:** Representa el tiempo. Se expresa en términos de ciclos, fases
+  e iteraciones.
+* **Vertical:** Es el aspecto estático del proceso, se describe en términos de
+  actividades, artefactos, trabajadores y flujos de trabajo.
+
+### Fases
+
+#### Inicial
+
+Es esta etapa, los requisitos esenciales del sistema se trasforman en casos de
+uso. Aquí se define si es factible el proyecto, y se definen los riesgos y los
+costos. Se puede hacer un prototipo para que el cliente lo apruebe.
+
+#### Elaboración
+
+Aquí se crea el plan del proyecto y se eliminan los elementos de mayor riesgo.
+Para eso se tiene que tener una vista amplia del problema a resolver.
+
+#### Construcción
+
+Aquí comienza el desarrollo del software, códigos de producción y pruebas alfa.
+Las pruebas beta se llevan a cabo al comienzo de la fase de transición.
+
+#### Transición
+
+Aquí los productos se entregaran al cliente. Aquí va la capacitación del
+usuario y el monitoreo.
+
+Metodología Ágil
+----------------
+
+La declaración central del Manifiesto Ágil dice: "Estamos descubriendo mejores
+formas de desarrollar software haciéndolo y ayudando a otros a hacerlo".
+
+### Manifiesto Ágil
+
+Los siguientes son los 12 principios principales de la metodología ágil:
+
+1. Nuestra mayor prioridad es satisfacer al cliente mediante la entrega
+   temprana y continua de software con valor.
+
+2. Aceptamos que los requisitos cambien, incluso en etapas tardías del
+   desarrollo. Los procesos Ágiles aprovechan el cambio para proporcionar
+   ventaja competitiva al cliente.
+
+3. Entregamos software funcional frecuentemente, entre dos semanas y dos meses,
+   con preferencia al periodo de tiempo más corto posible.
+
+4. Los responsables de negocio y los desarrolladores trabajamos juntos de forma
+   cotidiana durante todo el proyecto.
+
+5. Los proyectos se desarrollan en torno a individuos motivados. Hay que darles
+   el entorno y el apoyo que necesitan, y confiarles la ejecución del trabajo.
+
+6. El método más eficiente y efectivo de comunicar información al equipo de
+   desarrollo y entre sus miembros es la conversación cara a cara.
+
+7. El software funcionando es la medida principal de progreso.
+
+8. Los procesos Ágiles promueven el desarrollo sostenible. Los promotores,
+   desarrolladores y usuarios debemos ser capaces de mantener un ritmo
+   constante de forma indefinida.
+
+9. La atención continua a la excelencia técnica y al buen diseño mejora la
+   Agilidad.
+
+10. La simplicidad, o el arte de maximizar la cantidad de trabajo no realizado,
+    es esencial.
+
+11. Las mejores arquitecturas, requisitos y diseños emergen de equipos auto
+    organizados.
+
+12. A intervalos regulares el equipo reflexiona sobre cómo ser más efectivo
+    para a continuación ajustar y perfeccionar su comportamiento en
+    consecuencia.
+
+### Marcos de trabajo
+
+Los marcos de trabajo ágiles funcionan de forma similar, con ciclos de trabajo
+llamados sprints que se ejecutan de forma iterativa.
+
+Los marcos de trabajo mas populares son los siguientes:
+
+#### Scrum
+
+##### Roles
+
+* **Scrum Master:** Es un facilitados y responsable de que el equipo se adhiera
+  a los valores y principios e la metodología ágil.
+* **Propietario:** Es el cliente, o alguien designado de la organización que
+  conoce sus necesidades.
+* **Equipo Scrum:** Las personas que forman el grupo de trabajo.
+
+##### Ceremonias
+
+* **Planificación del sprint**
+* **Scrum Diario:** Esta es una reunión de no mas de 15 minutos para asegurarse
+  de que todo el equipo esta en la misma pagina.
+* **Revisión del sprint:** El equipo muestra lo terminado en el sprint.
+* **Retrospectiva:** Para revisar el desempeño del equipo.
+
+##### Artefactos
+
+Estos son los que garantizan la transparencia y organización de las actividades
+a realizar.
+
+* **Lista de producto (Product Backlog):** Es una lista ordenada de los
+  requerimientos.
+* **Lista de actividades especificas del sprint(Sprint backlog):** Es el
+  conjunto de actividades que promete realizar el equipo al finalizar el sprint.
+* **Incremento:** Es la suma de las actividades realizadas en el sprint.
+
+##### Flujo de trabajo
+
+Se sigue el siguiente flujo:
+
+![](Imagenes/scrum.png)
+
+### Extreme Programming (XP)
+
+Este se enfoca en adaptar sobre la marcha el software según las necesidades del
+cliente. Según esta metodología, los cambios son naturales, y se pueden aplicar
+en cualquier etapa del proyecto.
+
+Una practica común es la programación en parejas, en la cual una realiza el
+trabajo y otra revisa en tiempo real. Esto permite discutir mejoras y evitar
+errores.
+
+#### Proceso
+
+1. Planificación
+2. Diseño
+3. Codificación (Y refactors)
+4. Testing
+5. Release
 
 Dudas para clase
 ================
 
 1. ¿Relación entre flujos de proceso, y modelos?
    **Motivo:** Flujo lineal = Modelo en cascada, Evolutivo = Espiral.
-   **Respuesta:** El flujo es la parte teorica, y el modelo la implementacion
+   **Respuesta:** El flujo es la parte teórica, y el modelo la implementación
