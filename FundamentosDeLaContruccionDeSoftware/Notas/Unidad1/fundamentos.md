@@ -254,3 +254,4 @@ Dudas para clase
 
 1. ¿Relación entre flujos de proceso, y modelos?
    **Motivo:** Flujo lineal = Modelo en cascada, Evolutivo = Espiral.
+   **Respuesta:** El flujo es la parte teorica, y el modelo la implementacion
