@@ -1,0 +1,46 @@
+// Como se encuentra una palabra en el diccionario?
+Inicio;
+/Que palabra quiere buscar?/;
+
+// Este es el grupo de palabras que tenemos para buscar.
+`grupo` = Todas las palabras del diccionario;
+
+// Esta es la letra que estamos buscando actualmente
+`posicion` = 0;
+
+// Luego de reccorrer la palabra completamente, `grupo` sera
+// la lista de ocurrencias de la palabra en el diccionario
+for (`letra` = primera letra de la palabra;
+    Aun no hemos llegado al final de la palabra;
+    Avanzamos una letra en la palabra y le sumamos 1 a posicion) {
+  call buscar_ocurrencias(grupo, letra, posicion);
+}
+
+// Le mostramos las ocurrencias al usuario
+for (`palabra` = primera palabra de `grupo`;
+    No hemos llegado al final de `grupo`;
+    Vamos a la siguiente palabra de `grupo`) {
+  /Una ocurrencia de la palabra se encuentra en `palabra.posicion`/      
+}
+
+Final;
+
+/*
+  Busca la todas las ocurrencias de `letra` en la posicion `posicion`
+  en las palabras de `grupo`. Estas palabras van a un nuevo grupo, y
+  finalmente cambia el valor de `grupo` por ese nuevo grupo.
+ */
+function buscar_ocurrencias(grupo, letra, posicion) {
+  Inicio;
+  `nuevo_grupo` = conjunto vacio;
+  for (`palabra` = primera palabra en `grupo`;
+      No hemos llegado al final del grupo;
+      Avanzamos una palabra en el grupo) {
+    if (la letra numero `posicion` de `palabra` es igual
+        a la letra que buscamos) {
+      le añadimos la palabra al conjunto `nuevo_grupo`;
+    }
+  }
+  `grupo` = `nuevo_grupo`;
+  Fin;
+}

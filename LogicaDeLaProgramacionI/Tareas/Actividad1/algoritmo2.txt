@@ -1,0 +1,25 @@
+// Como se puede determinar si un numero es un numero primo?
+Inicio;
+/Ingrese un numero/;
+
+`n` = Numero ingresado;
+`raiz` = raiz cuadrada de `n`;
+`es_primo` = verdadero;
+
+// Si ninguno de los numeros desde 2 hasta `raiz` 
+// divide a `n`, se pude afirmar que `n` es primo
+for (`i` = 2; `i < raiz`; i = i + 1) {
+  if (`i` es divisor de `n`) {
+    // Encontramos un divisor de `n`
+    `es_primo` = falso;
+    break;
+  }
+}
+
+if (`es_primo`) {
+  /El numero ingresado es un numero primo/;
+} else {
+  /El numero ingresado no es primo/;
+}
+
+Final;
