@@ -1,16 +1,6 @@
-Este documento fue generado automaticamente, porfavor no modificar
-
-# Archivos
-
-* [./.git](./.git)
-* [./.gitignore](./.gitignore)
-* [./.gitmodules](./.gitmodules)
-* [./.index-creator](./.index-creator)
-* [./Abreviaciones.md](./Abreviaciones.md)
-* [./FundamentosDeLaContruccionDeSoftware](./FundamentosDeLaContruccionDeSoftware)
-* [./index-creator.exe](./index-creator.exe)
-* [./InduccionTDS](./InduccionTDS)
-* [./IntroduccionALaProgramacion](./IntroduccionALaProgramacion)
-* [./LogicaDeLaProgramacionI](./LogicaDeLaProgramacionI)
-* [./MateI](./MateI)
-* [./README.md](./README.md)
+| Clase                                          | Abreviación |
+|------------------------------------------------|-------------|
+| Matematica I                                   | M           |
+| Introducción a la programación de computadoras | IPC         |
+| Logica de la programacion I                    | LPI         |
+| Fundamentos de la construccion de software     | FCS         |
