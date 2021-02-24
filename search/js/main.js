@@ -6,7 +6,7 @@ let resultList = fileList;
 const updateList = () => {
     let res = "";
     for (let file of resultList) {
-        res += `<li class="list-group-item"><a href="/${file}">${file}</a></li>`
+        res += `<li class="list-group-item"><a href="/Universidad/${file}">${file}</a></li>`
     }
     list.innerHTML = res;
 }
