@@ -1,0 +1,52 @@
+Realice un algoritmo del proceso en el que daría el vuelto luego de una venta,
+Plantéelo primero para un caso específico, por ejemplo: si la venta fue de
+Q.13.50 y le pagaron con un billete de Q.20 y luego para un caso general, es
+decir no importando la cantidad de la venta ni la cantidad con la que le
+pagaron.
+
+Caso especifico
+===============
+
+Venta: Q 13.50
+Pago: Q 20.00
+
+El vuelto tendría que ser: 20 - 13.50 = 6.50
+
+Entonces le doy a la persona una moneda de 50 centavos, una de un quetzal, y un
+billete de 5 quetzales.
+
+Caso general
+============
+
+Inicio
+
+Venta: venta
+Pago: pago
+Monedas: {
+    Q 100, // Billetes
+    Q 50,
+    Q 20,
+    Q 10,
+    Q 5,
+    Q 1,   // Monedas
+    Q 0.50,
+    Q 0.25,
+    Q 0.5,
+}
+
+si Venta > Pago:
+    Informar que el dinero no es suficiente para pagar
+    Terminar
+
+VueltoPendiente: Pago - Venta // El total de dinero a pagar
+Vuelto: [] // La lista de billetes y monedas
+
+// Vamos añadiendo monedas a Vuelto, y restando del VueltoPendiente
+para cada m en Monedas:
+    mientras m <= VueltoPendiente:
+        Añadimos a Vuelto un billete/moneda de denominacion m
+    si VueltoPendiente = 0:
+        Dar el vuelto a la persona
+
+si VueltoPendiente != 0:
+    Informar a la persona que no se tiene el cambio exacto para pagarle
