@@ -21,5 +21,6 @@ Algoritmo
 =========
 
 1. Pedimos ambos números
-2. Calculamos `porcentaje` usando la formula citada arriba
-3. Mostramos `porcentaje`
+2. Si `a` es 0 terminamos
+3. Calculamos `porcentaje` usando la formula citada arriba
+4. Mostramos `porcentaje`
