@@ -1,0 +1,65 @@
+Examen Parcial II
+=================
+
+Resuelva los siguientes ejercicios en pseudocódigo 
+
+I. Área de rectángulo
+---------------------
+
+### Instrucciones
+
+Cómo calcular el área de un rectángulo de dimensiones proporcionadas por el
+usuario?
+
+### Algoritmo
+
+Variables:
+    ancho, alto, area como numeros
+
+Algoritmo:
+    1. Solicitar la `altura`
+    2. Solicitar lo `ancho`
+    3. area <- alto * ancho
+    4. Escribir El area del rectanulo es `area`
+
+II. Mayor y menor
+-----------------
+
+### Instrucciones
+
+Solicitar dos números y luego indicar cuál es el mayor y cuál es el menor
+
+### Algoritmo
+
+Variables:
+    a, b como numeros
+
+Algoritmo:
+
+    1. Solicitar `a`
+    2. Solicitar `b`
+    3. si a > b:
+            Indicar que `a` es mayor que `b`
+       y si b > a:
+            Indicar que `b` es mayor que `a`
+       y si ninguna de la anteriores:
+            Indicar que `a` es igual a `b`
+
+III. Par o impar
+----------------
+
+### Instrucciones
+
+Comprobar si un número ingresado es par o impar
+
+### Algoritmo
+
+Variables:
+    ingresado, como numero
+
+Algoritmo:
+    1. Solicitar ingresado
+    2. si ingresado dividido 2 no deja residuo:
+            Indicar que ingresado es par
+       si no:
+            Indicar que ingresado es impar
