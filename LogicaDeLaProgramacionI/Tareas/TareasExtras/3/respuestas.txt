@@ -1,0 +1,109 @@
+Instrucciones
+=============
+
+JS es un lenguaje de programación dirigido por eventos. Investigue qué
+significa este término y luego responda las siguientes preguntas.
+
+* Dado que JS tuvo sus orígenes en la red (entiéndase para páginas web) ¿Por
+  qué cree que JS es un lenguaje dirigido por eventos?
+
+* Un ejemplo de un evento es cuando hacemos clic en un botón para enviar un
+  formulario de inicio de sesión. El navegador web envía el formulario a un
+  servidor web, dicho servidor lee la información del formulario, la procesa
+  y envía una respuesta en un evento de respuesta. Finalmente el navegador web
+  recibe y puede manejar este evento de respuesta ¿existen este tipo de eventos
+  en procesos no relacionados a la computación? Puede apoyar su respuesta con
+  un ejemplo. 
+
+* Dado cómo funciona el paradigma de programación dirigida por eventos ¿utiliza
+  alguna estructura de control? Explique
+
+* En el ejemplo de la pregunta 2, hablamos de envíos de formularios
+  y respuestas ¿Cree usted que los mensajes tienen que tener una estructura
+  o pueden ser mensajes en cualquier formato? Explique.
+
+Coloque sus respuestas en un archivo de texto, debidamente identificada cada
+pregunta.
+
+Programación orientada a eventos
+================================
+
+Se define de la siguiente manera:
+
+> La programación dirigida por eventos, es un paradigma de programación en el
+> los sucesos que ocurran en el sistema, definidos por el usuario o que ellos
+> que tanto la estructura como la ejecución de los programas van determinados
+> por mismos provoquen.
+
+En lugar de que el programa tenga un flujo definido, las acciones del usuario
+son las que le darán el flujo al programa.
+
+Respuestas
+==========
+
+1. Dado que JS tuvo sus orígenes en la red (entiéndase para páginas web) ¿Por
+   qué cree que JS es un lenguaje dirigido por eventos?
+
+Porque eso permite que las paginas web sean mas interactivas.
+
+---
+
+2. Un ejemplo de un evento es cuando hacemos clic en un botón para enviar un
+   formulario de inicio de sesión. El navegador web envía el formulario a un
+   servidor web, dicho servidor lee la información del formulario, la procesa
+   y envía una respuesta en un evento de respuesta. Finalmente el navegador web
+   recibe y puede manejar este evento de respuesta ¿existen este tipo de
+   eventos en procesos no relacionados a la computación? Puede apoyar su
+   respuesta con un ejemplo. 
+
+Claro que si, las tareas que automatizan exactamente ese mismo proceso. 
+
+Por ejemplo, para hacer algunos tramites. Hay que ir a las oficinas
+correspondientes (visitar el sitio). Darle papelería a quien corresponda (envió
+del formulario). La información se guarda, copia, etc (procesamiento).
+Y recibimos la respuesta del encargado (El navegador recibe la respuesta).
+
+---
+
+3. Dado cómo funciona el paradigma de programación dirigida por eventos
+   ¿utiliza alguna estructura de control? Explique
+
+Como se maneja un loop de eventos, se utiliza una estructura de control
+iterativa.
+
+Según la documentación de Mozilla, generalmente se parece a lo siguiente:
+
+~~~js
+    while(queue.waitForMessage()) {
+        queue.processNextMessage();
+    }
+~~~
+
+---
+
+4. En el ejemplo de la pregunta 2, hablamos de envíos de formularios
+   y respuestas ¿Cree usted que los mensajes tienen que tener una estructura
+   o pueden ser mensajes en cualquier formato? Explique.
+
+Creo que tienen que tener una estructura definida. Si no, como va a saber el
+servidor que es lo que le envió el navegador.
+
+Digamos:
+
+~~~
+nombre = "Pablo Sanchez"
+carnet = "21001135"
+~~~
+
+Como humanos entendemos rápidamente lo que dice ahí, pero la maquina que solo
+recibe:
+
+~~~
+"nombre = \"Pablo Sanchez\"\ncarnet = \"21001135\""
+~~~
+
+Como sabe lo que significa?
+
+En cambio, si el formato definido es que hay un dato por linea, y esta
+separados así `nombre = "valor"`, la maquina ya puede interpretar lo que
+recibió.
