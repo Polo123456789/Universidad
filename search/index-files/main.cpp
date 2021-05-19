@@ -16,7 +16,7 @@ using Pipe = std::unique_ptr<FILE, PipeDeleter>;
 
 int main(void) {
     try {
-        Pipe gitFiles(_popen("git ls-tree -r master", "r"));
+        Pipe gitFiles(_popen("git ls-tree -r gh-pages", "r"));
         std::array<char, 512> buffer;
         std::vector<std::string> fileList;
         while(std::fscanf(gitFiles.get(), "%*s %*s %*s %s", buffer.data()) == 1) {
