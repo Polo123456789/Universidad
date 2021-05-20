@@ -1,0 +1,26 @@
+Requisitos Funcionales
+======================
+
+1. Se tiene que llevar control de los equipos de trabajo. Tienen que tener
+   mínimo un administrador y un desarrollador. Cada equipo tiene asignado un
+   proyecto.
+2. Llevar control de el equipo que tenga asignado cada equipo de trabajo.
+3. Llevar control de las reuniones que se han tenido
+
+Clases
+======
+
+* Proyecto
+
+* Equipo de trabajo
+
+* Trabajador: Del que heredan
+
+    * Administrador
+    * Vendedor
+    * Diseñador
+    * Desarrollador
+
+* Equipo Adicional
+
+* Reuniones
