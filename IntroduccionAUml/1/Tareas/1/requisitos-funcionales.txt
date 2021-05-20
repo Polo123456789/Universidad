@@ -6,3 +6,10 @@ Requisitos funcionales
 3. Que el usuario pueda modificar los datos de su perfil
 4. Que el usuario pueda ver todos sus carritos de compra
 5. Que el usuario pueda ver los últimos 10 artículos que visito
+
+Clases
+======
+
+1. Usuario
+2. Carrito de compra
+3. Articulo
