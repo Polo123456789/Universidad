@@ -1,0 +1,172 @@
+Usuario
+=======
+
+Iniciar Sesión
+--------------
+
+El sistema debería solicitar un usuario y contraseña, valida los datos, y de
+ser correctos redirige al usuario a una pagina dependiendo de su tipo.
+
+Se valida lo siguiente:
+
+1. Que el usuario recibido exista en la base de datos: En caso de no existir se
+   envía el error: "El usuario no existe en la base de datos"
+2. Que la contraseña en la base de datos sea la misma que se envió: En caso de
+   ser diferentes se envía el error: "La contraseña es incorrecta, intente
+   nuevamente"
+
+Cualquier error en la validación lleva a que se soliciten de nuevo los datos.
+
+Administrador
+=============
+
+Crear clases
+------------
+
+El sistema debería recibir:
+
+* El nombre de la clase
+* El catedrático que la imparte
+* El grado al que se le asignara
+
+Validara los datos, y de ser correctos creara en la base de datos la clase.
+Informara por correo al catedrático que tiene una clase nueva para impartir,
+y a los alumnos que tienen una clase nueva a recibir.
+
+Se valida lo siguiente:
+
+1. Que el nombre de la clase no pase de los 30 caracteres: De tener un nombre
+   mas largo se solicitara que se ingrese otro.
+2. Que el catedrático exista: De no existir se enviara el mensaje: "No se ha
+   encontrado el nombre del catedrático. Verifique que haya escrito
+   correctamente el nombre".
+3. Que el grado exista: De no existir se enviara el mensaje: "No se ha
+   encontrado el grado"
+
+Asignar a clases
+----------------
+
+### Asignar profesores
+
+El sistema debería recibir el nombre de la clase y el nombre del profesor.
+Validara los datos, y de ser correctos asignara al profesor a esa clase. Se
+notificara a los alumnos por correo del cambio de maestro.
+
+### Asignar alumnos
+
+(Las clases tiene a la lista de alumnos dependiendo de el grado asignado).
+
+Editar información
+------------------
+
+El sistema debería recibir un query. Lo envía a la base de datos y retorna la
+respuesta.
+
+Profesor
+========
+
+Gestión de tareas
+-----------------
+
+### Crear Tareas
+
+El sistema debería recibir:
+
+* La clase en la que se asignara la tarea
+* El titulo de la tarea
+* La descripción de la tarea
+* Opcionalmente, material de apoyo para la tarea
+
+Validara los datos, de ser correctos se asignara la tarea a la clase y se
+notificara a los alumnos de que tienen una tarea nueva.
+
+Se valida lo siguiente:
+
+1. Que el profesor sea el encargado de la clase: En caso de no serlo se le
+   notifica al profesor, y a un administrador.
+2. Que el titulo de la tarea no pase de los 30 caracteres.
+3. Que la descripción de la tarea no pase de los 500 caracteres
+4. Que el material de apoyo sea de los tipos de archivo permitido.
+
+### Modificar Tareas
+
+El sistema debería recibir una clase.
+
+De existir la clase, debería enlistar las tareas de la clase y permitir que el
+profesor elija una para modificar.
+
+Se le enviaran los datos de la tarea al profesor, y se esperara a que haga los
+cambios. Cuando se reciban los cambios se realizaran las mismas validaciones
+que para la creación de tareas. De ser correctos se le notificara por correo
+a los alumnos que los requisitos de la tarea han cambiado.
+
+### Calificar Tareas
+
+El sistema debería recibir una clase.
+
+De existir la clase, debería enlistar las tareas de la clase que tengan una
+solución sin calificar y permitir que el profesor elija una calificar.
+
+Se envía la respuesta de el estudiante al profesor y se espera a que asigne una
+nota. Se le permite que coloque un comentario a la tarea. Se valida lo que
+coloco el profesor, y de ser correcto, se le notifica por correo al estudiante
+que se ha calificado una de sus tareas.
+
+Se valida lo siguiente:
+
+1. Que la nota este entre 0 y 100.
+2. Que el comentario no sea mas largo que 200 caracteres.
+
+Responder dudas
+---------------
+
+El sistema debería recibir una clase.
+
+De existir la clase, debería enlistar la lista de dudas que hayan publicado los
+alumnos.
+
+Se permite que abajo de las dudas el profesor coloque una respuesta. Se valida
+la respuesta y, de ser correcta, se notifica por correo al alumno de la
+respuesta de su duda.
+
+Se valida que la respuesta del profesor no sea mas larga que 200 caracteres.
+
+Subir documentos de apoyo
+-------------------------
+
+El sistema debería recibir un documento de apoyo, y la clase a la que se le
+dará. Se validan las entradas y, de ser correctas, se añaden a el material de
+la clase.
+
+Se valida lo siguiente:
+
+1. Que el profesor sea el que imparte la clase.
+2. Que le material de apoyo sea de los tipos de archivo permitido.
+
+Alumno
+======
+
+Ver contenido
+-------------
+
+El sistema enlista las clases del alumno, y se le permite eligir una.
+
+Se le muestra:
+
+1. Las tareas que tenga asignadas y que no tengan respuesta.
+2. Los documentos de apoyo que ha dado el profesor.
+3. Las respuestas del profesor a las dudas que publico.
+
+Subir respuestas
+----------------
+
+(Nota: El alumno viene de la lista de tareas en `ver contenido` o viene de uno
+de los correos que se le envió notificando de sus tareas).
+
+El sistema debería recibir una tarea. Si la tarea esta asignada al alumno, se
+envían los detalles de la tarea, y se le da un espacio para que suba su
+respuesta. Se valida la respuesta y, de ser correcta, se marca como entregada
+y se notifica al profesor que tiene una tarea nueva para calificar.
+
+Se valida que la respuesta sea un tipo de archivo permitido.
+
