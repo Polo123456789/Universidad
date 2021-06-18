@@ -186,7 +186,7 @@ for (let i = 0; i < number_of_discs; i++) {
     towers[base].push(number_of_discs - i);
 }
 
-console.log(`---------- Inicial ----------\n${print_towers(towers)}`)
+alert(`---------- Inicial ----------\n${print_towers(towers)}`)
 
 // Solucion de la torre
 //
@@ -199,5 +199,5 @@ for (let i = 1; i <= number_of_steps; i++) {
         odd_step(towers);
     }
 
-    console.log(`---------- Paso ${i} ----------\n` + print_towers(towers));
+    alert(`---------- Paso ${i} ----------\n` + print_towers(towers));
 }
