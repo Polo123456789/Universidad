@@ -7,5 +7,6 @@
 | Matematica Financiera                          | MF          |
 | Introduccion a UML                             | UML         |
 | Logica de la programacion II                   | LPII        |
+| Ingles Tecnico I                               | ITI         |
 
 [Buscar archivos](/Universidad/search)
