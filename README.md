@@ -8,5 +8,7 @@
 | Introduccion a UML                             | UML         |
 | Logica de la programacion II                   | LPII        |
 | Ingles Tecnico I                               | ITI         |
+| Bases de Datos I                               | BDI         |
+| Programacion Orientada a Objetos I             | POOI        |
 
 [Buscar archivos](/Universidad/search)
