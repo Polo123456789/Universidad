@@ -31,6 +31,34 @@ que están disponibles, un objeto tipo `Decano` y una lista de objetos tipo
 Cada `Curso` tiene un objeto `Profesor` (hijo de `PersonaInteres`), y un
 `Horario` en el que se imparte.
 
+### Nota sobre el diseño
+
+Hay varios miembros en las clases que son públicos, y creo que tengo que
+aclarar la motivación, ya que tengo entendido que lo usual es dejar los
+atributos como privados o protegidos todos.
+
+Las instrucciones dicen que:
+
+> Lo que tiene que hacer es crear un sistema de gestión en el que pueda agregar,
+> modificar y eliminar cualquiera de las clases que hemos definido.
+
+Tomando por ejemplo la `EscuelaAcademica`, para agregar, modificar y eliminar
+carreras, tendría que añadir los métodos:
+
+* `agregarCarrera`
+* `getCarrera`
+* `eliminarCarrera`
+
+Y otros métodos similares, que lo único que harían seria llamar a un método
+equivalente del `ArrayList` en el que se están guardando las carreras. Así que
+prefiero dejar los atributos como públicos, para no tener código duplicado ni
+reescribir la interfaz de `ArrayList` añadiendo un `Carrera` al final.
+
+Otras cosas como `Horario` si tienen todos los atributos en privado, ya que
+prefiero que sea una clase inmutable, y en `Curso` el horario tambien es
+privado ya que se tienen que hacer checkeos antes de modificarlo.
+
+
 Definición de Clases
 --------------------
 
