@@ -11,3 +11,6 @@ buildNumber.properties
 
 .project
 .classpath
+
+build.bat
+run.bat
