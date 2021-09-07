@@ -81,7 +81,7 @@ public class EscuelaAcademica {
 
     }
 
-    public static void gestionModificar(DB db)
+    private static void gestionModificar(DB db)
         throws SQLException, InterruptedException {
 
         ArrayList<EscuelaAcademica> escuelas = cargarDesde(db);
@@ -118,12 +118,13 @@ public class EscuelaAcademica {
             System.out.println(Colors.green("\nModificado exitosamente\n"));
             Thread.sleep(1000);
         } else {
+            // TODO(pabsa)
             System.out.println(Colors.green("Y entramos en la gestion de carreras"));
             Thread.sleep(1000);
         }
     }
 
-    public static void gestionEliminar(DB db)
+    private static void gestionEliminar(DB db)
         throws SQLException, InterruptedException {
 
         ArrayList<EscuelaAcademica> escuelas = cargarDesde(db);
@@ -155,7 +156,7 @@ public class EscuelaAcademica {
         }
 
         EscuelaAcademica e = escuelas.get(aModificar - 1);
-        // TODO Mostrar los hijos afectados
+        // TODO(pabsa) Mostrar los hijos afectados
         db.eliminar(e);
         System.out.println(Colors.green("\nEliminada exitosamente\n"));
         Thread.sleep(1000);

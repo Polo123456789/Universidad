@@ -105,4 +105,34 @@ public final class DB {
             }
         );
     }
+
+    public void insertar(final Profesor p) throws SQLException {
+        ejecutarQueryConParametros(
+            "INSERT INTO profesor (nombre, apellidos) VALUES (?,?)", 
+            (PreparedStatement s) -> {
+                s.setString(1, p.getNombre());
+                s.setString(2, p.getApellidos());
+            }
+        );
+    }
+
+    public void actualizar(final Profesor p) throws SQLException {
+        ejecutarQueryConParametros(
+            "UPDATE profesor SET nombre = ?, apellidos = ? WHERE id = ?", 
+            (PreparedStatement s) -> {
+                s.setString(1, p.getNombre());
+                s.setString(2, p.getApellidos());
+                s.setInt(3, p.getId());
+            }
+        );
+    }
+
+    public void eliminar(final Profesor p) throws SQLException {
+        ejecutarQueryConParametros(
+            "DELETE FROM profesor WHERE id = ?", 
+            (PreparedStatement s) -> {
+                s.setInt(1, p.getId());
+            }
+        );
+    }
 }

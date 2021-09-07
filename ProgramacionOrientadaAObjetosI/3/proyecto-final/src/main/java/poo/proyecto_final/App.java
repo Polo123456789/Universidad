@@ -39,6 +39,7 @@ public class App {
                 case 2:
                     break;
                 case 3:
+                    Profesor.gestionar(db);
                     break;
                 case 4:
                     break;
