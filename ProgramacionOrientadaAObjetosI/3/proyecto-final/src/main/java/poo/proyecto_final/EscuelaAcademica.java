@@ -53,80 +53,112 @@ public class EscuelaAcademica {
         );
 
         switch (opcion) {
-            // Agregar
-            case 1: {
-                EscuelaAcademica e = leerDesdeTerminal();
-                db.insertar(e);
-                System.out.println(Colors.green("Insertada correctamente"));
-                Thread.sleep(1000);
+            case 1: 
+                gestionAgregar(db);
                 break;
-            }
 
-            // Modificar
-            case 2: {
-                ArrayList<EscuelaAcademica> escuelas = cargarDesde(db);
-                enlistarEscuelas(escuelas);
-
-                
-                System.out.print(Colors.blue("Que escuela quiere modificar? "));
-                final int aModificar = Input.leerNumero(
-                        new Input.Rango(1, escuelas.size() + 1)
-                );
-
-                EscuelaAcademica e = escuelas.get(aModificar - 1);
-
-                System.out.println("Quiere modificar la escuela, o sus "
-                                  +"carreras? (1 para escuela, 2 para carreras)");
-
-                final int seleccion = Input.leerNumero(
-                        new Input.Rango(1, 2)
-                );
-
-                if (seleccion == 1) {
-                    e.modificarDesdeTermial();
-                    db.actualizar(e);
-                    System.out.println(Colors.green("\nModificado exitosamente\n"));
-                    Thread.sleep(1000);
-                } else {
-                    System.out.println(Colors.green("Y entramos en la gestion de carreras"));
-                    Thread.sleep(1000);
-                }
-
+            case 2: 
+                gestionModificar(db);
                 break;
-            }
-                
 
-            // Eliminar
             case 3:
-                ArrayList<EscuelaAcademica> escuelas = cargarDesde(db);
-                enlistarEscuelas(escuelas);
-
-                
-                System.out.print(Colors.blue("Que escuela quiere eliminar?")
-                                 + " (0 para cancelar) ");
-                final int aModificar = Input.leerNumero(
-                        new Input.Rango(0, escuelas.size() + 1)
-                );
-
-                if (aModificar == 0) {
-                    System.out.println(
-                        Colors.red("\nCancelando...\n")
-                    );
-                    Thread.sleep(1000);
-                    return;
-                }
-
-                EscuelaAcademica e = escuelas.get(aModificar - 1);
-                // TODO Mostrar los hijos afectados
-                db.eliminar(e);
-                System.out.println(Colors.green("\nEliminada exitosamente\n"));
-                Thread.sleep(1000);
+                gestionEliminar(db);
                 break;
 
-            // Salir
             case 4:
+                // Salir
                 return;
         }
+    }
+
+    private static void gestionAgregar(DB db)
+        throws SQLException, InterruptedException {
+
+        EscuelaAcademica e = leerDesdeTerminal();
+        db.insertar(e);
+        System.out.println(Colors.green("Insertada correctamente"));
+        Thread.sleep(1000);
+
+    }
+
+    public static void gestionModificar(DB db)
+        throws SQLException, InterruptedException {
+
+        ArrayList<EscuelaAcademica> escuelas = cargarDesde(db);
+
+        if (escuelas.size() == 0) {
+            System.out.println(
+                Colors.red("\nTiene que crear al menos una escuela "
+                           + "antes de poder modificarlas.\n")
+            );
+
+            Thread.sleep(1000);
+            return;
+        }
+
+        enlistarEscuelas(escuelas);
+
+        System.out.print(Colors.blue("Que escuela quiere modificar? "));
+        final int aModificar = Input.leerNumero(
+            new Input.Rango(1, escuelas.size() + 1)
+        );
+
+        EscuelaAcademica e = escuelas.get(aModificar - 1);
+
+        System.out.println("Quiere modificar la escuela en si, o sus "
+                           + "carreras? (1 para escuela, 2 para carreras)");
+
+        final int seleccion = Input.leerNumero(
+                new Input.Rango(1, 2)
+        );
+
+        if (seleccion == 1) {
+            e.modificarDesdeTermial();
+            db.actualizar(e);
+            System.out.println(Colors.green("\nModificado exitosamente\n"));
+            Thread.sleep(1000);
+        } else {
+            System.out.println(Colors.green("Y entramos en la gestion de carreras"));
+            Thread.sleep(1000);
+        }
+    }
+
+    public static void gestionEliminar(DB db)
+        throws SQLException, InterruptedException {
+
+        ArrayList<EscuelaAcademica> escuelas = cargarDesde(db);
+
+        if (escuelas.size() == 0) {
+            System.out.println(
+                Colors.red("\nTiene que crear al menos una escuela "
+                           + "antes de tratar de eliminarla.\n")
+            );
+            Thread.sleep(1000);
+            return;
+        }
+
+        enlistarEscuelas(escuelas);
+
+        
+        System.out.print(Colors.blue("Que escuela quiere eliminar?")
+                         + " (0 para cancelar) ");
+        final int aModificar = Input.leerNumero(
+                new Input.Rango(0, escuelas.size() + 1)
+        );
+
+        if (aModificar == 0) {
+            System.out.println(
+                Colors.red("\nCancelando...\n")
+            );
+            Thread.sleep(1000);
+            return;
+        }
+
+        EscuelaAcademica e = escuelas.get(aModificar - 1);
+        // TODO Mostrar los hijos afectados
+        db.eliminar(e);
+        System.out.println(Colors.green("\nEliminada exitosamente\n"));
+        Thread.sleep(1000);
     }
 
     public static void enlistarEscuelas(ArrayList<EscuelaAcademica> escuelas) {
