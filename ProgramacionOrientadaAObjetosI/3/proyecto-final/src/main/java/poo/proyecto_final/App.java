@@ -1,8 +1,7 @@
 package poo.proyecto_final;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
@@ -16,7 +15,6 @@ public class App {
         // Y entramos en la applicacion
         try {
             mainLoop(db);
-
         } catch (final SQLException e) {
             System.out.println(e);
         } finally {
@@ -27,24 +25,18 @@ public class App {
     }
 
     public static void mainLoop(DB db) throws SQLException {
-        System.out.println("Intentaremos insertar algo a escuelaAcademica");
+        System.out.println("Cargando Escuelas ...");
+        ArrayList<EscuelaAcademica> escuelas = EscuelaAcademica.cargarDesde(db);
 
-        String nombrePrueba = "Escuela de ingenieria";
-
-        db.ejecutarQueryConParametros(
-            "INSERT INTO escuelaAcademica (nombre) VALUES (?)",
-            (PreparedStatement s) -> {
-                s.setString(1, nombrePrueba);
-            }
-        );
-
-        System.out.println("Ahora intentaremos leer esos datos");
-        ResultSet rs = db.ejecutarQuery("SELECT * FROM escuelaAcademica;").getResultSet();
-
-        while (rs.next()) {
-            System.out.println(rs.getInt("id") + "|" + rs.getString("nombre"));
+        for (EscuelaAcademica e : escuelas) {
+            System.out.println(e);
         }
 
+        System.out.println("Y ahora leamos una de la terminal.");
+
+        EscuelaAcademica escuelita = EscuelaAcademica.leerDesdeTerminal();
+
+        System.out.println(escuelita);
     }
 
     /**

@@ -13,9 +13,10 @@ public class Input {
     }
 
     private static final String nombreInvalidoError = 
-        "Los nombres pueden estar unicamente formados por caracteres de la"
-        + " 'a' a la 'z',\n en mayusculas y minusculas, con espacios.\n"
-        + "Pofavor ingrese otro nombre.";
+        Colors.red("\nLos nombres pueden estar unicamente formados por "
+                   + "caracteres de la 'a' a la 'z',\nen mayusculas y "
+                   + "minusculas, con espacios. No pueden tener 0 caracteres\n");
+        
 
     public static String leerNombre() {
         try (Scanner s = new Scanner(System.in)) {
@@ -31,6 +32,7 @@ public class Input {
                 }
 
                 System.out.println(nombreInvalidoError);
+                System.out.println("Porfavor ingrese otro nombre.");
             }
             return n;
         }

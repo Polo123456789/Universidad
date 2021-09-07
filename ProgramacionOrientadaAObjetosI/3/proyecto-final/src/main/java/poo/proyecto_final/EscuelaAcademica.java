@@ -22,7 +22,7 @@ public class EscuelaAcademica {
         ResultSet rs =
             db.ejecutarQuery("SELECT * FROM escuelaAcademica").getResultSet();
 
-        while (!rs.next()) {
+        while (rs.next()) {
             EscuelaAcademica e = new EscuelaAcademica();
             e.id = rs.getInt("id");
             e.nombre = rs.getString("nombre");
@@ -34,7 +34,7 @@ public class EscuelaAcademica {
 
     public static EscuelaAcademica leerDesdeTerminal() {
         EscuelaAcademica e = new EscuelaAcademica();
-        System.out.print("Ingrese los datos de la escuela:");
+        System.out.println("Ingrese los datos de la escuela:");
 
         e.nombre = Input.leerNombre();
         e.id = noId;
@@ -48,6 +48,12 @@ public class EscuelaAcademica {
 
     public String getNombre() {
         return nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Escuela academica: {\n\tid: " + getId()
+                +",\n\tnombre: \"" + getNombre() + "\"\n}";
     }
 
 }
