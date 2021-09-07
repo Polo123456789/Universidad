@@ -27,36 +27,55 @@ public class Input {
                });
     }
 
-    private static final String nombreInvalidoError = 
-        Colors.red("\nLos nombres pueden estar unicamente formados por "
+    private static final String textoInvalidoError(String tipo) {
+        return Colors.red("\nLos " + tipo + "s pueden estar unicamente formados por "
                    + "caracteres de la 'a' a la 'z',\nen mayusculas y "
                    + "minusculas, con espacios. No pueden tener 0 caracteres\n");
-        
-    private static final String nombreVacioError = 
-        Colors.red("\nTiene que ingresar un nombre\n");
+
+    }
+
+    private static final String textoVacioError(String tipo) {
+        return Colors.red("\nTiene que ingresar un " + tipo + "\n");
+    }
+
+    public static String leerNombre() {
+        return leerTexto("nombre");
+    }
+
+    public static String leerNombreOVacio() {
+        return leerTextoOVacio("nombre");
+    }
+
+    public static String leerApellido() {
+        return leerTexto("apellido");
+    }
+
+    public static String leerApellidoOVacio() {
+        return leerTextoOVacio("apellido");
+    }
 
     /**
-     * Lee un nombre de la termial, sin permitir que este quede vacio.
+     * Lee un texto de la termial, sin permitir que este quede vacio.
      */
-    public static String leerNombre() {
-        String s = leerNombreOVacio();
+    public static String leerTexto(String tipo) {
+        String s = leerTextoOVacio(tipo);
         while (s == null) {
-            System.out.println(nombreVacioError);
-            s = leerNombreOVacio();
+            System.out.println(textoVacioError(tipo));
+            s = leerTextoOVacio(tipo);
         }
         return s;
     }
 
     /**
-     * Lee un nombre de la terminal, o retorna null si no se escribio nada
+     * Lee un texto de la terminal, o retorna null si no se escribio nada
      */
-    public static String leerNombreOVacio() {
+    public static String leerTextoOVacio(String tipo) {
         Scanner s = new Scanner(System.in);
         String n = "";
 
         boolean valido = false;
         while (!valido) {
-            System.out.print("Nombre: ");
+            System.out.print(tipo + ": ");
             n = s.nextLine();
 
             if (n.length() == 0) {
@@ -68,8 +87,8 @@ public class Input {
                 continue;
             }
 
-            System.out.println(nombreInvalidoError);
-            System.out.println("Porfavor ingrese otro nombre.");
+            System.out.println(textoInvalidoError(tipo));
+            System.out.println("Porfavor ingrese otro " + tipo + ".");
         }
         return n;
 

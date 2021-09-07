@@ -31,7 +31,6 @@ public class InputTest {
             "Carlos33",
             "Andr.,es",
             "Alvarllo_Martinez1",
-            "",
             "Algo77!"
         };
 
