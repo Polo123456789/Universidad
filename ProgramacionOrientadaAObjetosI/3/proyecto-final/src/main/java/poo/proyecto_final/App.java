@@ -5,7 +5,6 @@ import java.sql.SQLException;
 public class App {
     public static void main(String[] args) {
         DB db = inicializarDB();
-        System.out.println(Colors.blue(banner));
 
         // Ya se imprimio el error en `inicializarDB` si hubo alguno
         if (db == null) {
@@ -15,7 +14,7 @@ public class App {
         // Y entramos en la applicacion
         try {
             mainLoop(db);
-        } catch (final SQLException e) {
+        } catch (final Exception e) {
             System.out.println(e);
         } finally {
             System.out.println("\nCerrando la conexion a la base de datos ...");
@@ -24,15 +23,18 @@ public class App {
         }
     }
 
-    public static void mainLoop(DB db) throws SQLException {
+    public static void mainLoop(DB db) throws SQLException, InterruptedException {
         boolean quiereSalir = false;
         while(!quiereSalir) {
+            TermUtil.limpiarPantalla();
+            System.out.println(Colors.blue(banner));
             TermUtil.imprimirOpciones(menuPrincipal);
 
             System.out.print(Colors.blue("Opcion: "));
-            final int opcion = Input.leerNumero();
+            final int opcion = Input.leerNumero(new Input.Rango(1, 5));
             switch (opcion) {
                 case 1:
+                    EscuelaAcademica.gestionar(db);
                     break;
                 case 2:
                     break;
@@ -84,9 +86,9 @@ public class App {
                 // Si ya existe unicamente nos conectamos, sin crear nada
                 System.out.println("Se ha encontrado una base de datos. " +
                                    "Conectando ...");
-                Thread.sleep(1000);
                 db.conectar();
                 System.out.println(Colors.green("Conexion exitosa"));
+                Thread.sleep(1000);
             }
 
         } catch (final SQLException e) {

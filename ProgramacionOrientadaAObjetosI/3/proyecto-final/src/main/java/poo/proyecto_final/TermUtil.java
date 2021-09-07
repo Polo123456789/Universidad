@@ -6,7 +6,8 @@ final public class TermUtil {
     public static final String[] opcionesDeGestion = {
         "Agregar",
         "Modificar",
-        "Eliminar"
+        "Eliminar",
+        "Regresar"
     };
 
     public static final void limpiarPantalla() {

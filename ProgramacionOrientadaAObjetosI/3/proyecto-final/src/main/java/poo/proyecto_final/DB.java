@@ -80,10 +80,29 @@ public final class DB {
 
     public void insertar(final EscuelaAcademica e) throws SQLException {
         ejecutarQueryConParametros(
-                "INSERT INTO escuelaAcademica (nombre) VALUES (?)",
-                (PreparedStatement s) -> {
-                    s.setString(1, e.getNombre());
-                }
+            "INSERT INTO escuelaAcademica (nombre) VALUES (?)",
+            (PreparedStatement s) -> {
+                s.setString(1, e.getNombre());
+            }
+        );
+    }
+
+    public void actualizar(final EscuelaAcademica e) throws SQLException {
+        ejecutarQueryConParametros(
+            "UPDATE escuelaAcademica SET nombre = ? WHERE id = ?",
+            (PreparedStatement s) -> {
+                s.setString(1, e.getNombre());
+                s.setInt(2, e.getId());
+            }
+        );
+    }
+
+    public void eliminar(final EscuelaAcademica e) throws SQLException {
+        ejecutarQueryConParametros(
+            "DELETE FROM escuelaAcademica WHERE id = ?",
+            (PreparedStatement s) -> {
+                s.setInt(1, e.getId());
+            }
         );
     }
 }
