@@ -35,8 +35,10 @@ public class App {
         System.out.println("Y ahora leamos una de la terminal.");
 
         EscuelaAcademica escuelita = EscuelaAcademica.leerDesdeTerminal();
+        EscuelaAcademica escuelita2 = EscuelaAcademica.leerDesdeTerminal();
 
         System.out.println(escuelita);
+        System.out.println(escuelita2);
     }
 
     /**

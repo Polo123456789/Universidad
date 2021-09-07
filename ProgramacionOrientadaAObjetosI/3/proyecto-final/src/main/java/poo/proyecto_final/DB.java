@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.function.Consumer;
 
 /**
  * Singleton destinado a gestionar la base de datos
@@ -37,7 +36,7 @@ public final class DB {
         }
     }
 
-    public Statement ejecutarQuery(String query) throws SQLException {
+    public Statement ejecutarQuery(final String query) throws SQLException {
         Statement s = conn.createStatement();
         s.execute(query);
         return s;
@@ -63,9 +62,9 @@ public final class DB {
      *  );
      * ```
      */
-    public void ejecutarQueryConParametros(String               query,
-                                           LlenadorDeParametros llenar_params)
-                                             throws SQLException {
+    public void ejecutarQueryConParametros(final String               query,
+                                           final LlenadorDeParametros llenar_params)
+            throws SQLException {
             
         PreparedStatement s = conn.prepareStatement(query);
         llenar_params.apply(s);
@@ -79,4 +78,7 @@ public final class DB {
         }
     }
 
+    public void insertarEscuelaAcademica(final EscuelaAcademica e) {
+
+    }
 }

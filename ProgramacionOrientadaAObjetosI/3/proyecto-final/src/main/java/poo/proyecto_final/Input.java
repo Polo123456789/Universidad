@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Input {
     private Input() {}
 
-    protected static boolean nombreValido(String nombre) {
+    protected static boolean nombreValido(final String nombre) {
         return nombre.length() != 0
                && nombre.chars().allMatch((int c) -> {
                    return c == ' ' || Character.isAlphabetic(c);
@@ -19,22 +19,21 @@ public class Input {
         
 
     public static String leerNombre() {
-        try (Scanner s = new Scanner(System.in)) {
-            String n = "";
-            boolean valido = false;
-            while (!valido) {
-                System.out.print("Nombre: ");
-                n = s.nextLine();
+        Scanner s = new Scanner(System.in);
+        String n = "";
+        boolean valido = false;
+        while (!valido) {
+            System.out.print("Nombre: ");
+            n = s.nextLine();
 
-                if (nombreValido(n)) {
-                    valido = true;
-                    continue;
-                }
-
-                System.out.println(nombreInvalidoError);
-                System.out.println("Porfavor ingrese otro nombre.");
+            if (nombreValido(n)) {
+                valido = true;
+                continue;
             }
-            return n;
+
+            System.out.println(nombreInvalidoError);
+            System.out.println("Porfavor ingrese otro nombre.");
         }
+        return n;
     }
 }
