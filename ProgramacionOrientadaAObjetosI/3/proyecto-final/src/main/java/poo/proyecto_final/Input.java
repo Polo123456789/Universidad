@@ -21,6 +21,7 @@ public class Input {
     public static String leerNombre() {
         Scanner s = new Scanner(System.in);
         String n = "";
+
         boolean valido = false;
         while (!valido) {
             System.out.print("Nombre: ");
@@ -33,6 +34,30 @@ public class Input {
 
             System.out.println(nombreInvalidoError);
             System.out.println("Porfavor ingrese otro nombre.");
+        }
+        return n;
+    }
+
+    private static final String noEsUnNumeroError = 
+        Colors.red("\nLo que ingreso no es un numero entero\n");
+
+    public static Integer leerNumero() {
+        Scanner s = new Scanner(System.in);
+        Integer n = 0;
+
+        boolean valido = false;
+        while (!valido) {
+            final String temp = s.nextLine();
+            try {
+                n = Integer.parseInt(temp);
+                valido = true;
+                continue;
+
+            } catch (final NumberFormatException e) {
+                System.out.println(noEsUnNumeroError);
+                System.out.print("Porfavor ingrese otro numero: ");
+            }
+
         }
         return n;
     }

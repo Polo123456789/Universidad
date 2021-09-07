@@ -1,11 +1,11 @@
 package poo.proyecto_final;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) {
         DB db = inicializarDB();
+        System.out.println(Colors.blue(banner));
 
         // Ya se imprimio el error en `inicializarDB` si hubo alguno
         if (db == null) {
@@ -25,20 +25,17 @@ public class App {
     }
 
     public static void mainLoop(DB db) throws SQLException {
-        System.out.println("Cargando Escuelas ...");
-        ArrayList<EscuelaAcademica> escuelas = EscuelaAcademica.cargarDesde(db);
+        boolean quiereSalir = false;
+        while(!quiereSalir) {
+            System.out.println(menuPrincipal);
 
-        for (EscuelaAcademica e : escuelas) {
-            System.out.println(e);
+            System.out.print(Colors.blue("Opcion: "));
+            final Integer opcion = Input.leerNumero();
+
+            if (opcion.equals(-1)) {
+                return;
+            }
         }
-
-        System.out.println("Y ahora leamos una de la terminal.");
-
-        EscuelaAcademica escuelita = EscuelaAcademica.leerDesdeTerminal();
-        EscuelaAcademica escuelita2 = EscuelaAcademica.leerDesdeTerminal();
-
-        System.out.println(escuelita);
-        System.out.println(escuelita2);
     }
 
     /**
@@ -92,4 +89,34 @@ public class App {
         TermUtil.limpiarPantalla();
         return db;
     }
+
+    // Este codigo fue creado utilizando una herramienta a base del archivo
+    // ".\docs\banner.txt" Si quiere cambiarlo, modifique el archivo original y
+    // vuelva a correr la herramienta
+    private static final String banner =
+        "  _____   ____   ____       _____                                \n" +
+        " |  __ \\ / __ \\ / __ \\     |_   _|                               \n" +
+        " | |__) | |  | | |  | |      | |                                 \n" +
+        " |  ___/| |  | | |  | |      | |                                 \n" +
+        " | |    | |__| | |__| |     _| |_                                \n" +
+        " |_|___  \\____/ \\____/     |_____|_           __ _             _ \n" +
+        " |  __ \\                         | |         / _(_)           | |\n" +
+        " | |__) | __ ___  _   _  ___  ___| |_ ___   | |_ _ _ __   __ _| |\n" +
+        " |  ___/ '__/ _ \\| | | |/ _ \\/ __| __/ _ \\  |  _| | '_ \\ / _` | |\n" +
+        " | |   | | | (_) | |_| |  __/ (__| || (_) | | | | | | | | (_| | |\n" +
+        " |_|   |_|  \\___/ \\__, |\\___|\\___|\\__\\___/  |_| |_|_| |_|\\__,_|_|\n" +
+        "                   __/ |                                         \n" +
+        "                  |___/                                          \n";
+
+    // Este codigo fue creado utilizando una herramienta a base del archivo
+    // ".\docs\menu-principal.txt" Si quiere cambiarlo, modifique el archivo
+    // original y vuelva a correr la herramienta
+    private static final String menuPrincipal =
+        "Que es lo que quiere gestionar:\n" +
+        "\n" +
+        "    1) Escuelas Tecnicas\n" +
+        "    2) Decanos\n" +
+        "    3) Profesores\n" +
+        "    4) Directores\n";
+
 }

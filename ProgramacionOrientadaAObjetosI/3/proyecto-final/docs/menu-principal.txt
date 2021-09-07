@@ -1,0 +1,6 @@
+Que es lo que quiere gestionar:
+
+    1) Escuelas Tecnicas
+    2) Decanos
+    3) Profesores
+    4) Directores

@@ -78,7 +78,12 @@ public final class DB {
         }
     }
 
-    public void insertarEscuelaAcademica(final EscuelaAcademica e) {
-
+    public void insertar(final EscuelaAcademica e) throws SQLException {
+        ejecutarQueryConParametros(
+                "INSERT INTO escuelaAcademica (nombre) VALUES (?)",
+                (PreparedStatement s) -> {
+                    s.setString(1, e.getNombre());
+                }
+        );
     }
 }
