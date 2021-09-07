@@ -135,4 +135,34 @@ public final class DB {
             }
         );
     }
+
+    public void insertar(final Decano d) throws SQLException {
+        ejecutarQueryConParametros(
+            "INSERT INTO decano (nombre, apellidos) VALUES (?,?)", 
+            (PreparedStatement s) -> {
+                s.setString(1, d.getNombre());
+                s.setString(2, d.getApellidos());
+            }
+        );
+    }
+
+    public void actualizar(final Decano d) throws SQLException {
+        ejecutarQueryConParametros(
+            "UPDATE decano SET nombre = ?, apellidos = ? WHERE id = ?", 
+            (PreparedStatement s) -> {
+                s.setString(1, d.getNombre());
+                s.setString(2, d.getApellidos());
+                s.setInt(3, d.getId());
+            }
+        );
+    }
+
+    public void eliminar(final Decano d) throws SQLException {
+        ejecutarQueryConParametros(
+            "DELETE FROM decano WHERE id = ?", 
+            (PreparedStatement s) -> {
+                s.setInt(1, d.getId());
+            }
+        );
+    }
 }

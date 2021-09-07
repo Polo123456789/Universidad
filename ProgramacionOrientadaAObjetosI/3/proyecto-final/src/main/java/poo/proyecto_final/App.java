@@ -37,6 +37,7 @@ public class App {
                     EscuelaAcademica.gestionar(db);
                     break;
                 case 2:
+                    Decano.gestionar(db);
                     break;
                 case 3:
                     Profesor.gestionar(db);
