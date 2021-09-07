@@ -1,10 +1,9 @@
 package poo.proyecto_final;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Primer test para concectarse a una base de datos
- */
 public class App {
     public static void main(String[] args) {
         DB db = inicializarDB();
@@ -16,15 +15,42 @@ public class App {
 
         // Y entramos en la applicacion
         try {
-            System.out.println("El query con el que se creo la base de datos es:");
-            System.out.println(DBUtils.querysParaCrearTablas);
+            mainLoop(db);
+
+        } catch (final SQLException e) {
+            System.out.println(e);
         } finally {
-            System.out.println("Cerrando la conexion a la base de datos ...");
+            System.out.println("\nCerrando la conexion a la base de datos ...");
             db.cerrarConexion();
             System.out.println("Finalizado");
         }
     }
 
+    public static void mainLoop(DB db) throws SQLException {
+        System.out.println("Intentaremos insertar algo a escuelaAcademica");
+
+        String nombrePrueba = "Escuela de ingenieria";
+
+        db.ejecutarQueryConParametros(
+            "INSERT INTO escuelaAcademica (nombre) VALUES (?)",
+            (PreparedStatement s) -> {
+                s.setString(1, nombrePrueba);
+            }
+        );
+
+        System.out.println("Ahora intentaremos leer esos datos");
+        ResultSet rs = db.ejecutarQuery("SELECT * FROM escuelaAcademica;").getResultSet();
+
+        while (rs.next()) {
+            System.out.println(rs.getInt("id") + "|" + rs.getString("nombre"));
+        }
+
+    }
+
+    /**
+     * Ve que este el driver disponible, y se conecta a la base de datos,
+     * creandola de ser necesario.
+     */
     public static DB inicializarDB() {
         TermUtil.limpiarPantalla();
 
@@ -46,7 +72,7 @@ public class App {
             if (!DBUtils.existeLaDB()) {
                 System.out.println("No se ha encontrado una base de datos.");
                 System.out.println("Creando la base de datos...");
-                Thread.sleep(2000);
+                Thread.sleep(1000);
 
                 // No hay que crear el archivo, al conectar automaticamente se
                 // creara
@@ -54,8 +80,9 @@ public class App {
                 db.crearTablas();
             } else {
                 // Si ya existe unicamente nos conectamos, sin crear nada
-                System.out.println("La base de datos existe. Conectando ...");
-                Thread.sleep(2000);
+                System.out.println("Se ha encontrado una base de datos. " +
+                                   "Conectando ...");
+                Thread.sleep(1000);
                 db.conectar();
             }
 

@@ -2,8 +2,10 @@ package poo.proyecto_final;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.function.Consumer;
 
 /**
  * Singleton destinado a gestionar la base de datos
@@ -35,9 +37,39 @@ public final class DB {
         }
     }
 
-    public void ejecutarQuery(String query) throws SQLException {
+    public Statement ejecutarQuery(String query) throws SQLException {
         Statement s = conn.createStatement();
         s.execute(query);
+        return s;
+    }
+
+    /**
+     * Ejecuta un query con parametros
+     *
+     * @param query Las instrucciones sql a ejecutar
+     * @param llenar_params Un lambda que se encarga de llenar los parametros
+     *                      del query
+     *
+     * Ejemplo:
+     *
+     * ```java
+     * String nombre = "Algun nombre";
+     *
+     * db.ejecutarQueryConParametros(
+     *      "INSERT INTO escuelaAcademica (nombre) VALUES (?)",
+     *      (PreparedStatement s) -> {
+     *          s.setString(1, nombre);
+     *      }
+     *  );
+     * ```
+     */
+    public void ejecutarQueryConParametros(String               query,
+                                           LlenadorDeParametros llenar_params)
+                                             throws SQLException {
+            
+        PreparedStatement s = conn.prepareStatement(query);
+        llenar_params.apply(s);
+        s.executeUpdate();
     }
 
     public void crearTablas() throws SQLException {
