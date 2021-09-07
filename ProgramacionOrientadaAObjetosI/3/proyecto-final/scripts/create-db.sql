@@ -28,7 +28,6 @@ CREATE TABLE curso (
     nombre text,
     idHorario integer NOT NULL,
     idProfesor integer NOT NULL,
-
     FOREIGN KEY(idHorario) REFERENCES horario(id),
     FOREIGN KEY(idProfesor) REFERENCES profesor(id)
 );
@@ -38,7 +37,6 @@ CREATE TABLE carrera (
     nombre text,
     idDecano integer NOT NULL,
     idEscuela integer NOT NULL,
-
     FOREIGN KEY(idDecano) REFERENCES decano(id),
     FOREIGN KEY(idEscuela) REFERENCES escuelaAcademica(id)
 );
@@ -48,16 +46,13 @@ CREATE TABLE director (
     nombre text,
     apellidos text,
     idCarrera integer NOT NULL,
-
     FOREIGN KEY(idCarrera) REFERENCES carrera(id)
 );
 
 CREATE TABLE carreraTieneCurso (
     idCarrera integer NOT NULL,
     idCurso integer NOT NULL,
-
     FOREIGN KEY(idCarrera) REFERENCES carrera(id),
     FOREIGN KEY(idCurso) REFERENCES curso(id),
-
     PRIMARY KEY(idCarrera, idCurso)
 );
