@@ -30,10 +30,19 @@ public class App {
             System.out.println(menuPrincipal);
 
             System.out.print(Colors.blue("Opcion: "));
-            final Integer opcion = Input.leerNumero();
-
-            if (opcion.equals(-1)) {
-                return;
+            final int opcion = Input.leerNumero();
+            switch (opcion) {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    quiereSalir = true;
+                    break;
             }
         }
     }
@@ -47,12 +56,16 @@ public class App {
 
         // Nos aseguramos de tener el driver
         if (!DBUtils.seTieneElDriver()) {
-            System.err.println("No esta disponible el driver para conectarse "
-                               + "con sqlite3.");
-            System.err.println("Asegurese de estar usando la version con " 
-                               + "dependencias incluidas o añadir "
-                               + "`sqlite-jdbc-3.36.0.3.jar` manualmente al "
-                               + "classpath");
+            System.err.println(
+                    Colors.red("No esta disponible el driver para conectarse "
+                               + "con sqlite3.")
+            );
+            System.err.println(
+                Colors.red("Asegurese de estar usando la version con " 
+                + "dependencias incluidas o añadir "
+                + "`sqlite-jdbc-3.36.0.3.jar` manualmente al "
+                + "classpath")
+            );
             return null;
         }
 
@@ -63,18 +76,17 @@ public class App {
             if (!DBUtils.existeLaDB()) {
                 System.out.println("No se ha encontrado una base de datos.");
                 System.out.println("Creando la base de datos...");
-                Thread.sleep(1000);
-
-                // No hay que crear el archivo, al conectar automaticamente se
-                // creara
                 db.conectar();
                 db.crearTablas();
+                System.out.println(Colors.green("Base de datos creada con exito"));
+                Thread.sleep(1000);
             } else {
                 // Si ya existe unicamente nos conectamos, sin crear nada
                 System.out.println("Se ha encontrado una base de datos. " +
                                    "Conectando ...");
                 Thread.sleep(1000);
                 db.conectar();
+                System.out.println(Colors.green("Conexion exitosa"));
             }
 
         } catch (final SQLException e) {
@@ -117,6 +129,7 @@ public class App {
         "    1) Escuelas Tecnicas\n" +
         "    2) Decanos\n" +
         "    3) Profesores\n" +
-        "    4) Directores\n";
+        "    4) Directores\n" +
+        "    5) Salir\n";
 
 }

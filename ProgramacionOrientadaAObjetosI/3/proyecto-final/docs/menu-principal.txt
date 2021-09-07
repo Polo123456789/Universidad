@@ -4,3 +4,4 @@ Que es lo que quiere gestionar:
     2) Decanos
     3) Profesores
     4) Directores
+    5) Salir
