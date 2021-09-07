@@ -45,8 +45,8 @@ public class EscuelaAcademica {
     public static void gestionar(DB db) throws SQLException, InterruptedException {
         TermUtil.limpiarPantalla();
         System.out.println(Colors.blue("Gestion de Escuelas Academicas\n"));
-        TermUtil.imprimirOpcionesGestion();
 
+        TermUtil.imprimirOpcionesGestion();
         System.out.print(Colors.blue("Opcion: "));
         final int opcion = Input.leerNumero(
                 new Input.Rango(1, TermUtil.opcionesDeGestion.length + 1)
@@ -74,10 +74,24 @@ public class EscuelaAcademica {
                 );
 
                 EscuelaAcademica e = escuelas.get(aModificar - 1);
-                e.modificarDesdeTermial();
-                db.actualizar(e);
-                System.out.println(Colors.green("\nModificado exitosamente\n"));
-                Thread.sleep(1000);
+
+                System.out.println("Quiere modificar la escuela, o sus "
+                                  +"carreras? (1 para escuela, 2 para carreras)");
+
+                final int seleccion = Input.leerNumero(
+                        new Input.Rango(1, 2)
+                );
+
+                if (seleccion == 1) {
+                    e.modificarDesdeTermial();
+                    db.actualizar(e);
+                    System.out.println(Colors.green("\nModificado exitosamente\n"));
+                    Thread.sleep(1000);
+                } else {
+                    System.out.println(Colors.green("Y entramos en la gestion de carreras"));
+                    Thread.sleep(1000);
+                }
+
                 break;
             }
                 
@@ -103,6 +117,7 @@ public class EscuelaAcademica {
                 }
 
                 EscuelaAcademica e = escuelas.get(aModificar - 1);
+                // TODO Mostrar los hijos afectados
                 db.eliminar(e);
                 System.out.println(Colors.green("\nEliminada exitosamente\n"));
                 Thread.sleep(1000);
@@ -135,7 +150,13 @@ public class EscuelaAcademica {
     }
 
     public void modificarDesdeTermial() {
-        nombre = Input.leerNombre();
+        System.out.println("Ingrese los nuevos nombres para los campos."
+                           + " Dejelos en blanco si no desea cambiarlos");
+        String posibleNombre = Input.leerNombreOVacio();
+
+        if (posibleNombre != null) {
+            nombre = posibleNombre;
+        }
     }
 
 }

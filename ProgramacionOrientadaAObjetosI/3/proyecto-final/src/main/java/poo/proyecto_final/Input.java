@@ -22,8 +22,7 @@ public class Input {
     }
 
     protected static boolean nombreValido(final String nombre) {
-        return nombre.length() != 0
-               && nombre.chars().allMatch((int c) -> {
+        return nombre.chars().allMatch((int c) -> {
                    return c == ' ' || Character.isAlphabetic(c);
                });
     }
@@ -33,8 +32,25 @@ public class Input {
                    + "caracteres de la 'a' a la 'z',\nen mayusculas y "
                    + "minusculas, con espacios. No pueden tener 0 caracteres\n");
         
+    private static final String nombreVacioError = 
+        Colors.red("\nTiene que ingresar un nombre\n");
 
+    /**
+     * Lee un nombre de la termial, sin permitir que este quede vacio.
+     */
     public static String leerNombre() {
+        String s = leerNombreOVacio();
+        while (s == null) {
+            System.out.println(nombreVacioError);
+            s = leerNombreOVacio();
+        }
+        return s;
+    }
+
+    /**
+     * Lee un nombre de la terminal, o retorna null si no se escribio nada
+     */
+    public static String leerNombreOVacio() {
         Scanner s = new Scanner(System.in);
         String n = "";
 
@@ -42,6 +58,10 @@ public class Input {
         while (!valido) {
             System.out.print("Nombre: ");
             n = s.nextLine();
+
+            if (n.length() == 0) {
+                return null;
+            }
 
             if (nombreValido(n)) {
                 valido = true;
@@ -52,6 +72,7 @@ public class Input {
             System.out.println("Porfavor ingrese otro nombre.");
         }
         return n;
+
     }
 
     private static final String noEsUnNumeroError = 
