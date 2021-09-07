@@ -42,6 +42,10 @@ public class EscuelaAcademica {
         return e;
     }
 
+    public static void gestionar(DB db) {
+
+    }
+
     public Integer getId() {
         return id;
     }

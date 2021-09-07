@@ -27,7 +27,7 @@ public class App {
     public static void mainLoop(DB db) throws SQLException {
         boolean quiereSalir = false;
         while(!quiereSalir) {
-            System.out.println(menuPrincipal);
+            TermUtil.imprimirOpciones(menuPrincipal);
 
             System.out.print(Colors.blue("Opcion: "));
             final int opcion = Input.leerNumero();
@@ -120,16 +120,12 @@ public class App {
         "                   __/ |                                         \n" +
         "                  |___/                                          \n";
 
-    // Este codigo fue creado utilizando una herramienta a base del archivo
-    // ".\docs\menu-principal.txt" Si quiere cambiarlo, modifique el archivo
-    // original y vuelva a correr la herramienta
-    private static final String menuPrincipal =
-        "Que es lo que quiere gestionar:\n" +
-        "\n" +
-        "    1) Escuelas Tecnicas\n" +
-        "    2) Decanos\n" +
-        "    3) Profesores\n" +
-        "    4) Directores\n" +
-        "    5) Salir\n";
+    private static final String[] menuPrincipal = {
+        "Escuelas Tecnicas",
+        "Decanos",
+        "Profesores",
+        "Directores",
+        "Salir"
+    };
 
 }
