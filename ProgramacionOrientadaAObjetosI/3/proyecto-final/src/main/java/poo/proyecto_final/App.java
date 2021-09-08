@@ -46,6 +46,7 @@ public class App {
                     Profesor.gestionar(db);
                     break;
                 case 4:
+                    Director.gestionar(db);
                     break;
                 case 5:
                     quiereSalir = true;

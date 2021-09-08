@@ -168,26 +168,25 @@ public final class DB {
 
     public void insertar(final Carrera c) throws SQLException {
         ejecutarQueryConParametros(
-                "INSERT INTO carrera (nombre, idDecano, idEscuela) VALUES (?,?,?)",
-                (PreparedStatement s) -> {
-                    s.setString(1, c.getNombre());
-                    s.setInt(2, c.getIdDecano());
-                    s.setInt(3, c.getIdEscuela());
-                }
+            "INSERT INTO carrera (nombre, idDecano, idEscuela) VALUES (?,?,?)",
+            (PreparedStatement s) -> {
+                s.setString(1, c.getNombre());
+                s.setInt(2, c.getIdDecano());
+                s.setInt(3, c.getIdEscuela());
+            }
         );
     }
 
     public void actualizar(final Carrera c) throws SQLException {
         ejecutarQueryConParametros(
-                "UPDATE carrera SET nombre = ?, idDecano = ?, idEscuela = ? "
-                + "WHERE id = ?",
-
-                (PreparedStatement s) -> {
-                    s.setString(1, c.getNombre());
-                    s.setInt(2, c.getIdDecano());
-                    s.setInt(3, c.getIdEscuela());
-                    s.setInt(4, c.getId());
-                }
+            "UPDATE carrera SET nombre = ?, idDecano = ?, idEscuela = ? "
+            + "WHERE id = ?",
+            (PreparedStatement s) -> {
+                s.setString(1, c.getNombre());
+                s.setInt(2, c.getIdDecano());
+                s.setInt(3, c.getIdEscuela());
+                s.setInt(4, c.getId());
+            }
         );
     }
 
@@ -199,4 +198,52 @@ public final class DB {
             }
         );
     }
+
+    
+    public void insertar(final Director d) throws SQLException {
+        if (d != null) {
+            System.out.println(Colors.red("El director no es nulo"));
+        }
+        ejecutarQueryConParametros(
+            "INSERT INTO director (nombre, apellidos, idCarrera) VALUES (?,?,?)", 
+            (PreparedStatement s) -> {
+                if (s != null) {
+                    System.out.println(Colors.red("El statement no es nulo"));
+                }
+
+
+                System.out.println(Colors.red("Se empezo a ejecutar el statement"));
+                s.setString(1, d.getNombre());
+                System.out.println(Colors.red("Se inserto el nombre"));
+                s.setString(2, d.getApellidos());
+                System.out.println(Colors.red("Se inserto el apellido"));
+                s.setInt(3, d.getIdCarrera());
+                System.out.println(Colors.red("Se inserto la carrera"));
+                System.out.println(Colors.red("Llenado finalizado"));
+            }
+        );
+    }
+
+    public void actualizar(final Director d) throws SQLException {
+        ejecutarQueryConParametros(
+            "UPDATE director SET nombre = ?, apellidos = ?, idCarrera = ? "
+            + "WHERE id = ?", 
+            (PreparedStatement s) -> {
+                s.setString(1, d.getNombre());
+                s.setString(2, d.getApellidos());
+                s.setInt(3, d.getIdCarrera());
+                s.setInt(4, d.getId());
+            }
+        );
+    }
+
+    public void eliminar(final Director d) throws SQLException {
+        ejecutarQueryConParametros(
+            "DELETE FROM director WHERE id = ?", 
+            (PreparedStatement s) -> {
+                s.setInt(1, d.getId());
+            }
+        );
+    }
+    
 }

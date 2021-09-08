@@ -135,7 +135,7 @@ public class Profesor {
         enlistarProfesores(profesores);
 
         System.out.print(Colors.blue("Que profesor quiere eliminar?")
-                        + " (0 para cancelar) ");
+                         + " (0 para cancelar) ");
         final int aModificar = Input.leerNumero(
             new Input.Rango(0, profesores.size())
         );
@@ -165,11 +165,6 @@ public class Profesor {
 
     public String getApellidos() {
         return apellidos;
-    }
-
-    @Override public String toString() {
-        return "Profesor: {\n\tid: " + getId() + ",\n\tnombre: " + getNombre()
-               + ",\n\tapellidos: " + getApellidos() + "\n}";
     }
 
     public void modificarDesdeTermial() {

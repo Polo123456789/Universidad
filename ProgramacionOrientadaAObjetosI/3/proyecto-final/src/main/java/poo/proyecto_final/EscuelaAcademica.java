@@ -174,12 +174,6 @@ public class EscuelaAcademica {
         return nombre;
     }
 
-    @Override
-    public String toString() {
-        return "Escuela academica: {\n\tid: " + getId()
-                +",\n\tnombre: \"" + getNombre() + "\"\n}";
-    }
-
     public void modificarDesdeTermial() {
         System.out.println("Ingrese los nuevos nombres para los campos."
                            + " Dejelos en blanco si no desea cambiarlos");

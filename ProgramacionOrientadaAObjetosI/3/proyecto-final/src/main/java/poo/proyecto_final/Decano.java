@@ -156,7 +156,7 @@ public class Decano {
             System.out.println(
                 Colors.red("\nEste decano esta a cargo de una carrera, tiene "
                            + "que asignar otro decano a esta carrera si quiere"
-                           + " eliminarlo.\n");
+                           + " eliminarlo.\n")
             );
             Thread.sleep(1000);
             return;
@@ -208,11 +208,6 @@ public class Decano {
 
     public String getApellidos() {
         return apellidos;
-    }
-
-    @Override public String toString() {
-        return "Profesor: {\n\tid: " + getId() + ",\n\tnombre: " + getNombre()
-               + ",\n\tapellidos: " + getApellidos() + "\n}";
     }
 
     public void modificarDesdeTermial() {
