@@ -20,7 +20,7 @@ public class Carrera {
         String query = "SELECT * FROM carrera";
 
         if (e != null) {
-            query += " WHERE idCarrera = " + e.getId();
+            query += " WHERE idEscuela = " + e.getId();
         }
 
         ArrayList<Carrera> carreras =
@@ -34,6 +34,7 @@ public class Carrera {
             c.nombre = rs.getString("nombre");
             c.idDecano = rs.getInt("idDecano");
             c.idEscuela = rs.getInt("idEscuela");
+            carreras.add(c);
         }
         return carreras;
     }

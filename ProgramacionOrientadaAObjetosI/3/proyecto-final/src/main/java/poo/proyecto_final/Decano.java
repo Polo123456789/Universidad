@@ -137,7 +137,7 @@ public class Decano {
         enlistarDecanos(decanos);
 
         System.out.print(Colors.blue("Que decano quiere eliminar?")
-                        + " (0 para cancelar) ");
+                         + " (0 para cancelar) ");
         final int aModificar = Input.leerNumero(
             new Input.Rango(0, decanos.size())
         );
@@ -151,6 +151,16 @@ public class Decano {
         }
 
         Decano p = decanos.get(aModificar - 1);
+
+        if (p.tieneAsigandaCarrera(db)) {
+            System.out.println(
+                Colors.red("\nEste decano esta a cargo de una carrera, tiene "
+                           + "que asignar otro decano a esta carrera si quiere"
+                           + " eliminarlo.\n");
+            );
+            Thread.sleep(1000);
+            return;
+        }
 
         db.eliminar(p);
 
@@ -178,6 +188,14 @@ public class Decano {
         }
 
         return decanos;
+    }
+     
+    public boolean tieneAsigandaCarrera(DB db) throws SQLException {
+        int cuenta = db.ejecutarQuery(
+            "SELECT COUNT(*) FROM carrera WHERE idDecano = " + id
+        ).getUpdateCount();
+
+        return cuenta != 0;
     }
 
     public Integer getId() {
