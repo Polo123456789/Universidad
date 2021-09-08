@@ -107,7 +107,7 @@ public class Decano {
 
         System.out.print(Colors.blue("Que decano quiere modificar? "));
         final int aModificar = Input.leerNumero(
-            new Input.Rango(1, decanos.size() + 1)
+            new Input.Rango(1, decanos.size())
         );
 
         Decano d = decanos.get(aModificar - 1);
@@ -156,6 +156,28 @@ public class Decano {
 
         System.out.println(Colors.green("\nElimininado exitosamente\n"));
         Thread.sleep(1000);
+    }
+
+    public static ArrayList<Decano> decanosSinCarrera(DB db)
+        throws SQLException {
+
+        String query =
+            "SELECT * FROM decano WHERE id NOT IN (SELECT idDecano FROM carrera)";
+
+        ArrayList<Decano> decanos =
+            new ArrayList<Decano>();
+        ResultSet rs = 
+            db.ejecutarQuery(query).getResultSet();
+
+        while (rs.next()) {
+            Decano d = new Decano();
+            d.id = rs.getInt("id");
+            d.nombre = rs.getString("nombre");
+            d.apellidos = rs.getString("apellidos");
+            decanos.add(d);
+        }
+
+        return decanos;
     }
 
     public Integer getId() {
