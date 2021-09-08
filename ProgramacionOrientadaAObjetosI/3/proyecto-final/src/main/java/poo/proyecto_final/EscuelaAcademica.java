@@ -100,7 +100,7 @@ public class EscuelaAcademica {
 
         System.out.print(Colors.blue("Que escuela quiere modificar? "));
         final int aModificar = Input.leerNumero(
-            new Input.Rango(1, escuelas.size() + 1)
+            new Input.Rango(1, escuelas.size())
         );
 
         EscuelaAcademica e = escuelas.get(aModificar - 1);
@@ -118,9 +118,7 @@ public class EscuelaAcademica {
             System.out.println(Colors.green("\nModificado exitosamente\n"));
             Thread.sleep(1000);
         } else {
-            // TODO(pabsa)
-            System.out.println(Colors.green("Y entramos en la gestion de carreras"));
-            Thread.sleep(1000);
+            Carrera.gestionar(db, e);
         }
     }
 
@@ -144,7 +142,7 @@ public class EscuelaAcademica {
         System.out.print(Colors.blue("Que escuela quiere eliminar?")
                          + " (0 para cancelar) ");
         final int aModificar = Input.leerNumero(
-                new Input.Rango(0, escuelas.size() + 1)
+                new Input.Rango(0, escuelas.size())
         );
 
         if (aModificar == 0) {

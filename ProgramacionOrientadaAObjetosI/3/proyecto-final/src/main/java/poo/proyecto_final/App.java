@@ -28,6 +28,9 @@ public class App {
         while(!quiereSalir) {
             TermUtil.limpiarPantalla();
             System.out.println(Colors.blue(banner));
+            System.out.println(consejoDeUso);
+
+            System.out.println(Colors.blue("Menu:\n"));
             TermUtil.imprimirOpciones(menuPrincipal);
 
             System.out.print(Colors.blue("Opcion: "));
@@ -123,6 +126,19 @@ public class App {
         " |_|   |_|  \\___/ \\__, |\\___|\\___|\\__\\___/  |_| |_|_| |_|\\__,_|_|\n" +
         "                   __/ |                                         \n" +
         "                  |___/                                          \n";
+
+    private static final String consejoDeUso = 
+        Colors.green("Consejo:") + " Para una mayor facilidad de uso, el"
+        + " orden recomendado para crear los objetos seria:\n\n"
+        + "1) Escuela academica\n"
+        + "2) El un decano\n"
+        + "3) En la escuela, una carrera que manejara el decano\n"
+        + "4) Un profesor\n"
+        + "5) En la carrera, un curso que impartira ese profesor\n\n"
+        + "Teniendo esta base sientase en la libertad de gestionar el resto "
+        + "a su gusto\n";
+        
+
 
     private static final String[] menuPrincipal = {
         "Escuelas Tecnicas",

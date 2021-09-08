@@ -139,7 +139,7 @@ public class Decano {
         System.out.print(Colors.blue("Que decano quiere eliminar?")
                         + " (0 para cancelar) ");
         final int aModificar = Input.leerNumero(
-            new Input.Rango(0, decanos.size() + 1)
+            new Input.Rango(0, decanos.size())
         );
 
         if (aModificar == 0) {

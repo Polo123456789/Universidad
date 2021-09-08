@@ -106,7 +106,7 @@ public class Profesor {
 
         System.out.print(Colors.blue("Que profesor quiere modificar? "));
         final int aModificar = Input.leerNumero(
-            new Input.Rango(1, profesores.size() + 1)
+            new Input.Rango(1, profesores.size())
         );
 
         Profesor p = profesores.get(aModificar - 1);
@@ -137,7 +137,7 @@ public class Profesor {
         System.out.print(Colors.blue("Que profesor quiere eliminar?")
                         + " (0 para cancelar) ");
         final int aModificar = Input.leerNumero(
-            new Input.Rango(0, profesores.size() + 1)
+            new Input.Rango(0, profesores.size())
         );
 
         if (aModificar == 0) {

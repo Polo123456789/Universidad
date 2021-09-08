@@ -165,4 +165,38 @@ public final class DB {
             }
         );
     }
+
+    public void insertar(final Carrera c) throws SQLException {
+        ejecutarQueryConParametros(
+                "INSERT INTO carrera (nombre, idDecano, idEscuela) VALUES (?,?,?)",
+                (PreparedStatement s) -> {
+                    s.setString(1, c.getNombre());
+                    s.setInt(2, c.getIdDecano());
+                    s.setInt(3, c.getIdEscuela());
+                }
+        );
+    }
+
+    public void actualizar(final Carrera c) throws SQLException {
+        ejecutarQueryConParametros(
+                "UPDATE carrera SET nombre = ?, idDecano = ?, idEscuela = ? "
+                + "WHERE id = ?",
+
+                (PreparedStatement s) -> {
+                    s.setString(1, c.getNombre());
+                    s.setInt(2, c.getIdDecano());
+                    s.setInt(3, c.getIdEscuela());
+                    s.setInt(4, c.getId());
+                }
+        );
+    }
+
+    public void eliminar(final Carrera c) throws SQLException {
+        ejecutarQueryConParametros(
+            "DELETE FROM carrera WHERE id = ?", 
+            (PreparedStatement s) -> {
+                s.setInt(1, c.getId());
+            }
+        );
+    }
 }
