@@ -88,6 +88,10 @@ ALTER TABLE empleado ADD sueldo dec(8, 2);
 -- Para modificar campos
 ALTER TABLE productos MODIFY precio dec(8, 2);
 
+-- ------------- --
+-- Preview a DML --
+-- ------------- --
+
 -- Para obtener todos los valores de la tabla
 SELECT * FROM cliente;
 
