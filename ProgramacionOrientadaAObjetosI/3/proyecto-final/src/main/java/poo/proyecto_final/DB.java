@@ -201,25 +201,12 @@ public final class DB {
 
     
     public void insertar(final Director d) throws SQLException {
-        if (d != null) {
-            System.out.println(Colors.red("El director no es nulo"));
-        }
         ejecutarQueryConParametros(
             "INSERT INTO director (nombre, apellidos, idCarrera) VALUES (?,?,?)", 
             (PreparedStatement s) -> {
-                if (s != null) {
-                    System.out.println(Colors.red("El statement no es nulo"));
-                }
-
-
-                System.out.println(Colors.red("Se empezo a ejecutar el statement"));
                 s.setString(1, d.getNombre());
-                System.out.println(Colors.red("Se inserto el nombre"));
                 s.setString(2, d.getApellidos());
-                System.out.println(Colors.red("Se inserto el apellido"));
                 s.setInt(3, d.getIdCarrera());
-                System.out.println(Colors.red("Se inserto la carrera"));
-                System.out.println(Colors.red("Llenado finalizado"));
             }
         );
     }
@@ -245,5 +232,40 @@ public final class DB {
             }
         );
     }
-    
+
+    public void insertar(final Horario h) throws SQLException {
+        ejecutarQueryConParametros(
+            "INSERT INTO horario (aula, dia, inicio, final) VALUES "
+            + "(?,?,?,?)",
+            (PreparedStatement s) -> {
+                s.setInt(1, h.getAula());
+                s.setInt(2, h.getDia());
+                s.setInt(3, h.getInicio());
+                s.setInt(4, h.getFin());
+            }
+        );
+    }
+
+    public void actualizar(final Horario h) throws SQLException {
+        ejecutarQueryConParametros(
+            "UPDATE horario SET aula = ?, dia = ?, inicio = ?, final = ? "
+            + "WHERE id = ?", 
+            (PreparedStatement s) -> {
+                s.setInt(1, h.getAula());
+                s.setInt(2, h.getDia());
+                s.setInt(3, h.getInicio());
+                s.setInt(4, h.getFin());
+                s.setInt(5, h.getId());
+            }
+        );
+    }
+
+    public void eliminar(final Horario h) throws SQLException {
+        ejecutarQueryConParametros(
+            "DELETE FROM horario WHERE id = ?",
+            (PreparedStatement s) -> {
+                s.setInt(1, h.getId());
+            }
+        );
+    }
 }
