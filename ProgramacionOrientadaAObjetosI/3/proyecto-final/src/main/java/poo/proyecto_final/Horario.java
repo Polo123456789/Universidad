@@ -95,7 +95,7 @@ public class Horario {
         return horarios;
     }
 
-    public static Horario leerDesdeTerminal(DB db, Integer aula) 
+    public static Horario leerDesdeTerminal(DB db)
         throws SQLException {
 
         Horario h = new Horario();

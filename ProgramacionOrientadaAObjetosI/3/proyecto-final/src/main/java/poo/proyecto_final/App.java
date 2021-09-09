@@ -15,7 +15,7 @@ public class App {
         try {
             mainLoop(db);
         } catch (final Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         } finally {
             System.out.println("\nCerrando la conexion a la base de datos ...");
             db.cerrarConexion();

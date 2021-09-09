@@ -78,6 +78,10 @@ public final class DB {
         }
     }
 
+    public Integer ultimoIdInsertado() throws SQLException {
+        return ejecutarQuery("SELECT last_insert_rowid()").getUpdateCount();
+    }
+
     public void insertar(final EscuelaAcademica e) throws SQLException {
         ejecutarQueryConParametros(
             "INSERT INTO escuelaAcademica (nombre) VALUES (?)",

@@ -23,10 +23,8 @@ public class Carrera {
             query += " WHERE idEscuela = " + e.getId();
         }
 
-        ArrayList<Carrera> carreras =
-            new ArrayList<Carrera>();
-        ResultSet rs = 
-            db.ejecutarQuery(query).getResultSet();
+        ArrayList<Carrera> carreras = new ArrayList<Carrera>();
+        ResultSet rs = db.ejecutarQuery(query).getResultSet();
 
         while (rs.next()) {
             Carrera c = new Carrera();
