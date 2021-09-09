@@ -154,12 +154,11 @@ public class Carrera {
             Carrera c = carreras.get(aModificar - 1);
             c.modificarDesdeTerminal(db);
             db.actualizar(c);
+            System.out.println(Colors.green("\nModificado exitosamente\n"));
+            Thread.sleep(1000);
         } else {
             // TODO Gestionar cursos
         }
-
-        System.out.println(Colors.green("\nModificado exitosamente\n"));
-        Thread.sleep(1000);
     }
 
     private static void gestionEliminar(DB db, final EscuelaAcademica e)
