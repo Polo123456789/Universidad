@@ -220,10 +220,10 @@ public class Director {
 
             System.out.print("Ingrese el numero de la carrera, o 0 para no"
                              + " administrar ninguna de momento, o -1 si no"
-                             + " decea cambiar la carrera");
+                             + " decea cambiar la carrera: ");
 
             final int elegida = Input.leerNumero(
-                new Input.Rango(0, carreras.size())
+                new Input.Rango(-1, carreras.size())
             );
             if (elegida == -1) {
                 // No hacer nada

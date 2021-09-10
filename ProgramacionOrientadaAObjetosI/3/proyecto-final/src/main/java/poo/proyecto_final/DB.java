@@ -272,4 +272,61 @@ public final class DB {
             }
         );
     }
+
+    public void insertar(final Curso c) throws SQLException {
+        ejecutarQueryConParametros(
+            "INSERT INTO curso (nombre, idHorario, idProfesor) VALUES (?,?,?)",
+            (PreparedStatement s) -> {
+                s.setString(1, c.getNombre());
+                s.setInt(2, c.getIdHorario());
+                s.setInt(3, c.getIdProfesor());
+            }
+        );
+    }
+
+    public void actualizar(final Curso c) throws SQLException {
+        ejecutarQueryConParametros(
+            "UPDATE curso SET nombre = ?, idHorario = ?, idProfesor = ? "
+            + "WHERE id = ?",
+            (PreparedStatement s) -> {
+                s.setString(1, c.getNombre());
+                s.setInt(2, c.getIdHorario());
+                s.setInt(3, c.getIdProfesor());
+                s.setInt(4, c.getId());
+            }
+        );
+    }
+
+    public void eliminar(final Curso c) throws SQLException {
+        ejecutarQueryConParametros(
+            "DELETE FROM curso WHERE id = ?",
+            (PreparedStatement s) -> {
+                s.setInt(1, c.getId());
+            }
+        );
+    }
+
+    public void crearRelacion(final Carrera carrera, final Curso curso)
+        throws SQLException {
+
+        ejecutarQueryConParametros(
+            "INSERT INTO carreraTieneCurso (idCarrera, idCurso) VALUES (?,?)",
+            (PreparedStatement s) -> {
+                s.setInt(1, carrera.getId());
+                s.setInt(2, curso.getId());
+            }
+        );
+    }
+    
+    public void eliminarRelacion(final Carrera carrera, final Curso curso)
+        throws SQLException {
+
+        ejecutarQueryConParametros(
+            "DELETE FROM carreraTieneCurso WHERE idCarrera = ?, idCurso = ?",
+            (PreparedStatement s) -> {
+                s.setInt(1, carrera.getId());
+                s.setInt(2, curso.getId());
+            }
+        );
+    }
 }

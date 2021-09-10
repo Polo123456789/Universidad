@@ -227,12 +227,15 @@ public class Horario {
         return leerHora(new Input.Rango(inicioMinimo, finalMaximo));
     }
 
-    public static Integer leerHora(Input.Rango posiblesMinutos) {
+    public static Integer leerHora(Input.Rango posiblesHoras) {
         Integer hora = 0;
+        Input.Rango posiblesMinutos =
+            new Input.Rango(minimoMinutos, maximoMinutos);
+
         boolean minutosInvalidos = true;
         while (minutosInvalidos) {
             hora = Input.leerNumero(
-                new Input.Rango(inicioMinimo, finalMaximo)
+                posiblesHoras
             );
 
             final Integer minutos = getMinutos(hora);

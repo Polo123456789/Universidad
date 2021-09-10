@@ -106,7 +106,7 @@ public class Carrera {
         ArrayList<Decano> disponibles = Decano.decanosSinCarrera(db);
         if (disponibles.size() == 0) {
             System.out.println(
-                Colors.red("\nTiene que al menos un decano disponible para "
+                Colors.red("\nTiene que tener al menos un decano disponible para "
                            + "gestionar la carrera antes de crearla.\n")
             );
             Thread.sleep(1000);
@@ -147,15 +147,15 @@ public class Carrera {
         final int seleccion = Input.leerNumero(
                 new Input.Rango(1, 2)
         );
+        Carrera c = carreras.get(aModificar - 1);
 
         if (seleccion == 1) {
-            Carrera c = carreras.get(aModificar - 1);
             c.modificarDesdeTerminal(db);
             db.actualizar(c);
             System.out.println(Colors.green("\nModificado exitosamente\n"));
             Thread.sleep(1000);
         } else {
-            // TODO Gestionar cursos
+            Curso.gestionar(db, c);
         }
     }
 

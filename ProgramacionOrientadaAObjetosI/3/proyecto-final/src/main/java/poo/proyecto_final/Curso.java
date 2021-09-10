@@ -139,22 +139,144 @@ public class Curso {
 
         switch (opcion) {
             case 1: 
-                // TODO implementar
-                //gestionAgregar(db, e);
+                gestionAgregar(db, c);
                 break;
 
             case 2: 
-                //gestionModificar(db, e);
+                gestionModificar(db, c);
                 break;
 
             case 3:
-                //gestionEliminar(db, e);
+                gestionEliminar(db, c);
                 break;
 
             case 4:
                 // Salir
                 return;
         }
+    }
+
+    private static void gestionAgregar(DB db, final Carrera c) 
+        throws SQLException, InterruptedException {
+
+        System.out.println("1 para crear un nuevo curso, o 2 para añadir un "
+                           + "curso existente:");
+
+        final Integer opcion = Input.leerNumero(
+            new Input.Rango(1, 2)
+        );
+
+
+        if (opcion == 1) {
+            Curso curso = leerDesdeTerminal(db);
+            if (curso == null) {
+                // El error ya se imprimio en `leerDesdeTerminal`
+                return;
+            }
+            db.insertar(curso);
+            db.crearRelacion(c, curso);
+            System.out.println(Colors.green("Insertado correctamente"));
+            Thread.sleep(1000);
+            return;
+        }
+        
+        ArrayList<Curso> cursosDisponibles = cargarDesde(db, c, true);
+        if (cursosDisponibles.size() == 0) {
+            System.out.println(
+                Colors.red(
+                    "\nNo hay cursos disponibles que no esten asignados ya a "
+                    + "esta carrera.\n"
+                )
+            );
+            Thread.sleep(1000);
+            return;
+        }
+        System.out.println("Los cursos que no estan asignados a esta carrera "
+                           + "son:");
+        Curso.enlistarCursos(cursosDisponibles);
+        final Integer seleccionado = Input.leerNumero(
+            new Input.Rango(1, cursosDisponibles.size())
+        );
+        Curso curso = cursosDisponibles.get(seleccionado - 1);
+
+        db.crearRelacion(c, curso);
+        System.out.println(Colors.green("Insertado correctamente"));
+        Thread.sleep(1000);
+    }
+
+    private static void gestionModificar(DB db, final Carrera c)
+        throws SQLException, InterruptedException {
+
+        ArrayList<Curso> cursos = cargarDesde(db, c, false);
+
+        if (cursos.size() == 0) {
+            System.out.println(
+                Colors.red(
+                    "\nNo hay cursos disponibles que esten asignados a "
+                    + "esta carrera.\n"
+                )
+            );
+            Thread.sleep(1000);
+            return;
+        }
+
+        enlistarCursos(cursos);
+
+        System.out.print(Colors.blue("Que curso quiere modificar? "));
+        final int aModificar = Input.leerNumero(
+            new Input.Rango(1, cursos.size())
+        );
+
+        Curso curso = cursos.get(aModificar - 1);
+        c.modificarDesdeTerminal(db);
+        db.actualizar(curso);
+        System.out.println(Colors.green("\nModificado exitosamente\n"));
+        Thread.sleep(1000);
+    }
+
+    private static void gestionEliminar(DB db, final Carrera c)
+        throws SQLException, InterruptedException {
+
+        ArrayList<Curso> cursos = cargarDesde(db, c, false);
+
+        if (cursos.size() == 0) {
+            System.out.println(
+                Colors.red(
+                    "\nNo hay cursos disponibles que esten asignados a "
+                    + "esta carrera.\n"
+                )
+            );
+            Thread.sleep(1000);
+            return;
+        }
+
+        enlistarCursos(cursos);
+
+        System.out.print(Colors.blue("Que curso quiere modificar? "));
+        final int aModificar = Input.leerNumero(
+            new Input.Rango(1, cursos.size())
+        );
+
+        Curso curso = cursos.get(aModificar - 1);
+
+        if (curso.cantidadDeCarrerasEnLasQueEsta(db) == 1) {
+            // Solo esta en esta carrera, lo podemos borrar
+            Horario horario = Horario.porId(db, curso.getIdHorario());
+
+            db.eliminar(horario);
+            db.eliminarRelacion(c, curso);
+            db.eliminar(curso);
+        } else {
+            // Otras carreras tambien lo tienen, solo borramos la relacion
+            db.eliminarRelacion(c, curso);
+        }
+        System.out.println(Colors.green("\nElimininado exitosamente\n"));
+        Thread.sleep(1000);
+    }
+
+    public Integer cantidadDeCarrerasEnLasQueEsta(DB db) throws SQLException {
+        return db.ejecutarQuery("SELECT COUNT(*) FROM carreraTieneCurso"
+                                + " WHERE idCurso = " + id).getUpdateCount();
     }
 
     public Integer getId() {
