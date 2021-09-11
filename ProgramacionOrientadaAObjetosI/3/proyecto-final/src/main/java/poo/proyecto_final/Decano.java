@@ -30,6 +30,13 @@ public class Decano {
         return decanos;
     }
 
+    public static Decano porId(DB db, Integer id) throws SQLException {
+        Decano d = new Decano();
+
+        // TODO implementar
+
+        return d;
+    }
     
     public static Decano leerDesdeTerminal() {
         Decano d = new Decano();

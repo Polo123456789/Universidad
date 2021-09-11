@@ -87,8 +87,7 @@ public class Curso {
 
         System.out.println("Ahora tiene que crear un horario para el curso:");
         Horario horario = Horario.leerDesdeTerminal(db);
-        db.insertar(horario);
-        curso.idHorario = db.ultimoIdInsertado();
+        curso.idHorario = db.insertar(horario);
 
         curso.id = noId;
 
@@ -173,7 +172,7 @@ public class Curso {
                 // El error ya se imprimio en `leerDesdeTerminal`
                 return;
             }
-            db.insertar(curso);
+            curso.id = db.insertar(curso);
             db.crearRelacion(c, curso);
             System.out.println(Colors.green("Insertado correctamente"));
             Thread.sleep(1000);
@@ -275,8 +274,11 @@ public class Curso {
     }
 
     public Integer cantidadDeCarrerasEnLasQueEsta(DB db) throws SQLException {
-        return db.ejecutarQuery("SELECT COUNT(*) FROM carreraTieneCurso"
-                                + " WHERE idCurso = " + id).getUpdateCount();
+        ResultSet rs = db.ejecutarQuery("SELECT COUNT(*) FROM carreraTieneCurso"
+                                + " WHERE idCurso = " + id).getResultSet();
+        rs.next();
+
+        return rs.getInt(1);
     }
 
     public Integer getId() {

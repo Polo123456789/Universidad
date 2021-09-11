@@ -189,11 +189,12 @@ public class Carrera {
         }
 
         Carrera c = carreras.get(aModificar - 1);
-        // TODO Mostrar los hijos afectados
+
+        c.eliminarHijosAfectados(db);
         db.eliminar(c);
 
         System.out.println(Colors.green("\nElimininado exitosamente\n"));
-        Thread.sleep(1000);
+        Thread.sleep(5000);
     }
 
     public void modificarDesdeTerminal(DB db) 
@@ -229,6 +230,43 @@ public class Carrera {
             }
         }
     }
+
+    public void eliminarHijosAfectados(DB db) throws SQLException {
+        ArrayList<Curso> cursos = Curso.cargarDesde(db, this, false);
+        ArrayList<Curso> cursosABorrar = new ArrayList<Curso>();
+
+        for (Curso c : cursos) {
+            if (c.cantidadDeCarrerasEnLasQueEsta(db) == 1) {
+                cursosABorrar.add(c);
+            }
+        }
+
+        System.out.println("Al eliminar la carrera " + getNombre()
+                           + ", se eliminan los cursos:");
+        for (Curso c : cursosABorrar) {
+            System.out.println("* " + c.getNombre());
+        }
+
+        // 1. Eliminamos las relaciones con la carrera
+        for (Curso c : cursos) {
+            db.eliminarRelacion(this, c);
+        }
+        
+        // 2. Eliminamos los horarios de los respectivos cursos necesarios
+        // 3. Eliminamos los cursos necesarios
+        for (Curso c : cursosABorrar) {
+            Horario h = Horario.porId(db, c.getIdHorario());
+            db.eliminar(c);
+            db.eliminar(h);
+        }
+
+        // TODO los directores se quedan sin carreras
+
+        // TODO el decano se queda sin carrera
+        System.out.println("Al eliminar la carrera " + getNombre()
+                           + ", el :");
+    }
+
 
     public Integer getId() {
         return id;

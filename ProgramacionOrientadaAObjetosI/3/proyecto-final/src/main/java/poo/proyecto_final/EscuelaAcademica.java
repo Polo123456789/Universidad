@@ -154,10 +154,20 @@ public class EscuelaAcademica {
         }
 
         EscuelaAcademica e = escuelas.get(aModificar - 1);
-        // TODO(pabsa) Mostrar los hijos afectados
+        e.eliminarHijosAfectados(db);
         db.eliminar(e);
         System.out.println(Colors.green("\nEliminada exitosamente\n"));
-        Thread.sleep(1000);
+        Thread.sleep(5000);
+    }
+
+    public void eliminarHijosAfectados(DB db) throws SQLException {
+        ArrayList<Carrera> carreras = Carrera.cargarDesde(db, this);
+
+        for (Carrera c : carreras) {
+            System.out.println("Al eliminar la escuela eliminara tambien"
+                               + " la carrera " + c.getNombre());
+            c.eliminarHijosAfectados(db);
+        }
     }
 
     public static void enlistarEscuelas(ArrayList<EscuelaAcademica> escuelas) {

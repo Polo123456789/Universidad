@@ -3,6 +3,7 @@ package poo.proyecto_final;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -79,16 +80,19 @@ public final class DB {
     }
 
     public Integer ultimoIdInsertado() throws SQLException {
-        return ejecutarQuery("SELECT last_insert_rowid()").getUpdateCount();
+        ResultSet rs = ejecutarQuery("SELECT last_insert_rowid()").getResultSet();
+        rs.next();
+        return rs.getInt("last_insert_rowid()");
     }
 
-    public void insertar(final EscuelaAcademica e) throws SQLException {
+    public Integer insertar(final EscuelaAcademica e) throws SQLException {
         ejecutarQueryConParametros(
             "INSERT INTO escuelaAcademica (nombre) VALUES (?)",
             (PreparedStatement s) -> {
                 s.setString(1, e.getNombre());
             }
         );
+        return ultimoIdInsertado();
     }
 
     public void actualizar(final EscuelaAcademica e) throws SQLException {
@@ -110,7 +114,7 @@ public final class DB {
         );
     }
 
-    public void insertar(final Profesor p) throws SQLException {
+    public Integer insertar(final Profesor p) throws SQLException {
         ejecutarQueryConParametros(
             "INSERT INTO profesor (nombre, apellidos) VALUES (?,?)", 
             (PreparedStatement s) -> {
@@ -118,6 +122,7 @@ public final class DB {
                 s.setString(2, p.getApellidos());
             }
         );
+        return ultimoIdInsertado();
     }
 
     public void actualizar(final Profesor p) throws SQLException {
@@ -140,7 +145,7 @@ public final class DB {
         );
     }
 
-    public void insertar(final Decano d) throws SQLException {
+    public Integer insertar(final Decano d) throws SQLException {
         ejecutarQueryConParametros(
             "INSERT INTO decano (nombre, apellidos) VALUES (?,?)", 
             (PreparedStatement s) -> {
@@ -148,6 +153,7 @@ public final class DB {
                 s.setString(2, d.getApellidos());
             }
         );
+        return ultimoIdInsertado();
     }
 
     public void actualizar(final Decano d) throws SQLException {
@@ -170,7 +176,7 @@ public final class DB {
         );
     }
 
-    public void insertar(final Carrera c) throws SQLException {
+    public Integer insertar(final Carrera c) throws SQLException {
         ejecutarQueryConParametros(
             "INSERT INTO carrera (nombre, idDecano, idEscuela) VALUES (?,?,?)",
             (PreparedStatement s) -> {
@@ -179,6 +185,7 @@ public final class DB {
                 s.setInt(3, c.getIdEscuela());
             }
         );
+        return ultimoIdInsertado();
     }
 
     public void actualizar(final Carrera c) throws SQLException {
@@ -204,7 +211,7 @@ public final class DB {
     }
 
     
-    public void insertar(final Director d) throws SQLException {
+    public Integer insertar(final Director d) throws SQLException {
         ejecutarQueryConParametros(
             "INSERT INTO director (nombre, apellidos, idCarrera) VALUES (?,?,?)", 
             (PreparedStatement s) -> {
@@ -213,6 +220,7 @@ public final class DB {
                 s.setInt(3, d.getIdCarrera());
             }
         );
+        return ultimoIdInsertado();
     }
 
     public void actualizar(final Director d) throws SQLException {
@@ -237,7 +245,7 @@ public final class DB {
         );
     }
 
-    public void insertar(final Horario h) throws SQLException {
+    public Integer insertar(final Horario h) throws SQLException {
         ejecutarQueryConParametros(
             "INSERT INTO horario (aula, dia, inicio, final) VALUES "
             + "(?,?,?,?)",
@@ -248,6 +256,7 @@ public final class DB {
                 s.setInt(4, h.getFin());
             }
         );
+        return ultimoIdInsertado();
     }
 
     public void actualizar(final Horario h) throws SQLException {
@@ -273,7 +282,7 @@ public final class DB {
         );
     }
 
-    public void insertar(final Curso c) throws SQLException {
+    public Integer insertar(final Curso c) throws SQLException {
         ejecutarQueryConParametros(
             "INSERT INTO curso (nombre, idHorario, idProfesor) VALUES (?,?,?)",
             (PreparedStatement s) -> {
@@ -282,6 +291,7 @@ public final class DB {
                 s.setInt(3, c.getIdProfesor());
             }
         );
+        return ultimoIdInsertado();
     }
 
     public void actualizar(final Curso c) throws SQLException {
@@ -322,7 +332,7 @@ public final class DB {
         throws SQLException {
 
         ejecutarQueryConParametros(
-            "DELETE FROM carreraTieneCurso WHERE idCarrera = ?, idCurso = ?",
+            "DELETE FROM carreraTieneCurso WHERE idCarrera = ? AND idCurso = ?",
             (PreparedStatement s) -> {
                 s.setInt(1, carrera.getId());
                 s.setInt(2, curso.getId());

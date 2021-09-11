@@ -60,11 +60,7 @@ public class Horario {
             db.ejecutarQuery("SELECT * FROM horario WHERE id = " + id)
               .getResultSet();
 
-        if (!rs.next()) {
-            // El horario no existe, aunque por el uso, esto no deberia pasar
-            // nunca
-            return null;
-        }
+        rs.next();
 
         h.id = rs.getInt("id");
         h.aula = rs.getInt("aula");
@@ -262,6 +258,7 @@ public class Horario {
         return (hora - getMinutos(hora)) / 100;
     }
 
+    // TODO Crear test para ver que si funcione
     public boolean interfiereCon(Horario otro) {
         Input.Rango r = new Input.Rango(otro.getInicio(), otro.getFin());
 
