@@ -157,7 +157,7 @@ public class EscuelaAcademica {
         e.eliminarHijosAfectados(db);
         db.eliminar(e);
         System.out.println(Colors.green("\nEliminada exitosamente\n"));
-        Thread.sleep(5000);
+        Thread.sleep(10000);
     }
 
     public void eliminarHijosAfectados(DB db) throws SQLException {
@@ -167,6 +167,7 @@ public class EscuelaAcademica {
             System.out.println("Al eliminar la escuela eliminara tambien"
                                + " la carrera " + c.getNombre());
             c.eliminarHijosAfectados(db);
+            db.eliminar(c);
         }
     }
 

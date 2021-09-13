@@ -272,7 +272,6 @@ public class Horario {
         return (hora - getMinutos(hora)) / 100;
     }
 
-    // TODO Crear test para ver que si funcione
     public boolean interfiereCon(Horario otro) {
         Input.Rango r = new Input.Rango(otro.getInicio(), otro.getFin());
 

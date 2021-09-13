@@ -33,7 +33,14 @@ public class Decano {
     public static Decano porId(DB db, Integer id) throws SQLException {
         Decano d = new Decano();
 
-        // TODO implementar
+        ResultSet rs = db.ejecutarQuery("SELECT * FROM decano WHERE id = " + id)
+                         .getResultSet();
+
+        rs.next();
+
+        d.id = rs.getInt("id");
+        d.nombre = rs.getString("nombre");
+        d.apellidos = rs.getString("apellidos");
 
         return d;
     }

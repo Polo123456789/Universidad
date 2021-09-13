@@ -14,9 +14,15 @@ public class Director {
     private Integer idCarrera;
 
     public static ArrayList<Director> cargarDesde(DB db) throws SQLException {
+        return cargarDesde(db, "");
+    }
+
+    public static ArrayList<Director> cargarDesde(DB db, String where)
+        throws SQLException {
+
         ArrayList<Director> directores = new ArrayList<Director>();
         ResultSet rs =
-            db.ejecutarQuery("SELECT * FROM director").getResultSet();
+            db.ejecutarQuery("SELECT * FROM director " + where).getResultSet();
 
         while (rs.next()) {
             Director d = new Director();
@@ -196,6 +202,11 @@ public class Director {
     
     public Integer getIdCarrera() {
         return idCarrera;
+    }
+
+    protected Director setIdCarrera(Integer id) {
+        idCarrera = id;
+        return this;
     }
 
     public void modificarDesdeTermial(DB db) throws SQLException {

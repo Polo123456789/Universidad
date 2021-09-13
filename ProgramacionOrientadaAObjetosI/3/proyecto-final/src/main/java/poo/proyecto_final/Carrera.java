@@ -194,7 +194,7 @@ public class Carrera {
         db.eliminar(c);
 
         System.out.println(Colors.green("\nElimininado exitosamente\n"));
-        Thread.sleep(5000);
+        Thread.sleep(10000);
     }
 
     public void modificarDesdeTerminal(DB db) 
@@ -260,11 +260,26 @@ public class Carrera {
             db.eliminar(h);
         }
 
-        // TODO los directores se quedan sin carreras
-
-        // TODO el decano se queda sin carrera
         System.out.println("Al eliminar la carrera " + getNombre()
-                           + ", el :");
+                           + " los siguietnes directores se quedaran sin una"
+                           + " carrera que administrar");
+        ArrayList<Director> directores = Director.cargarDesde(
+            db,
+            "WHERE idCarrera = " + id
+        );
+
+        for (Director d : directores) {
+            System.out.println("* " + d.getNombre() + " " + d.getApellidos());
+            d.setIdCarrera(Director.sinCarrera);
+            db.actualizar(d);
+        }
+
+        Decano d = Decano.porId(db, idDecano);
+        System.out.println("Al eliminar la carrera " + getNombre()
+                           + ", el decano " + d.getNombre() + " "
+                           + d.getApellidos()
+                           + " se queda sin una carrera que administrar");
+        // Del decano no tenemos que cambiar nada, ya que solo guardamos el id
     }
 
 

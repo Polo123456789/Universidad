@@ -133,9 +133,9 @@ public class App {
         + " orden recomendado para crear los objetos seria:\n\n"
         + "1) Escuela academica\n"
         + "2) El un decano\n"
-        + "3) En la escuela, una carrera que manejara el decano\n"
+        + "3) En la escuela, una carrera que manejara el decano (Escuela>Modificar>Carreras)\n"
         + "4) Un profesor\n"
-        + "5) En la carrera, un curso que impartira ese profesor\n\n"
+        + "5) En la carrera, un curso que impartira ese profesor (Escuela>Modificar>Carreras>Modificar>Cursos)\n\n"
         + "Teniendo esta base sientase en la libertad de gestionar el resto "
         + "a su gusto\n";
         
