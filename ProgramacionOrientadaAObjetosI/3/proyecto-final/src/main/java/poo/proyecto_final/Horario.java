@@ -53,6 +53,19 @@ public class Horario {
     private Integer fin; // En la base de datos es `final`, pero ese nombre no
                          // puede ser en java ya que es una palabra reservada
     
+    // Necesario al crear al otro constructor
+    private Horario() {}
+    
+    // Utilizado unicamente durante los test
+    protected Horario(Integer dia,
+                      Integer inicio,
+                      Integer fin) {
+
+        this.dia = dia;
+        this.inicio = inicio;
+        this.fin = fin;
+    }
+    
     public static Horario porId(DB db, Integer id) throws SQLException {
         Horario h = new Horario();
 
@@ -75,9 +88,9 @@ public class Horario {
         throws SQLException {
 
         ArrayList<Horario> horarios = new ArrayList<Horario>();
-        ResultSet rs = 
-            db.ejecutarQuery("SELECT * FROM horario WHERE aula = " + aula)
-              .getResultSet();
+        String query = "SELECT * FROM horario WHERE aula = " + aula;
+
+        ResultSet rs = db.ejecutarQuery(query).getResultSet();
 
         while (rs.next()) {
             Horario h = new Horario();
@@ -87,6 +100,7 @@ public class Horario {
             h.dia = rs.getInt("dia");
             h.inicio = rs.getInt("inicio");
             h.fin = rs.getInt("final");
+            horarios.add(h);
         }
         return horarios;
     }
@@ -262,7 +276,8 @@ public class Horario {
     public boolean interfiereCon(Horario otro) {
         Input.Rango r = new Input.Rango(otro.getInicio(), otro.getFin());
 
-        return r.enRango(this.inicio) || r.enRango(this.fin);
+        return this.dia == otro.dia
+            && (r.enRango(this.inicio) || r.enRango(this.fin));
     }
 
     public Integer getId() {
