@@ -10,5 +10,8 @@
 | Ingles Tecnico I                               | ITI         |
 | Bases de Datos I                               | BDI         |
 | Programacion Orientada a Objetos I             | POOI        |
+| Ingles Tecnico II                              | ITII        |
+| Bases de Datos II                              | BDII        |
+| Programacion Orientada a Objetos II            | POOII       |
 
 [Buscar archivos](/Universidad/search)
