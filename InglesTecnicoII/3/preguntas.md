@@ -15,3 +15,7 @@ activities, education or academic preparation, goals in life. Duration: 3 to
 2. What do you do there? What are your responsibilities?
 3. What did you study to work there? Where?
 4. What are your goals in life?
+5. Any recomendation that you would give to new programers?
+
+Lucas
+
