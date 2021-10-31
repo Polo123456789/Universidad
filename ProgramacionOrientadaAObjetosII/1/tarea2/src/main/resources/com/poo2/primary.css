@@ -1,0 +1,17 @@
+.button {
+    -fx-background-color:  #1D8484;
+    -fx-text-fill: white;
+}
+
+.text-field {
+    -fx-background-color:  #5CCCCC;
+}
+
+.pane {
+    -fx-background-color:   #00AAAA;
+}
+
+.label {
+    -fx-font-style: italic;
+    -fx-text-fill: white;
+}

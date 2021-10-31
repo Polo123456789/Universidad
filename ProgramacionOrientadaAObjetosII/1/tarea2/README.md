@@ -11,7 +11,7 @@ mvn archetype:generate \
         -DarchetypeArtifactId=javafx-archetype-fxml \
         -DarchetypeVersion=0.0.6 \
         -DgroupId=com.poo2 \
-        -DartifactId=holaMundo \
+        -DartifactId=tarea2 \
         -Dversion=1.0.0
 ```
 
