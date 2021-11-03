@@ -14,4 +14,4 @@
 | Bases de Datos II                              | BDII        |
 | Programacion Orientada a Objetos II            | POOII       |
 
-[Buscar archivos](/Universidad/search)
+[Buscar Archivos](/Universidad/search)
