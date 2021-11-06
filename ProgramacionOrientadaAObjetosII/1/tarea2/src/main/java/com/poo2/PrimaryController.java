@@ -21,20 +21,23 @@ public class PrimaryController {
 
     @FXML
     public void calcularEdad() {
-        // TODO: Cambio. Resta los años, iguala los años en la fecha, y ve si
-        // cumplio ya este año.
+        assert false;
         String sDia = dia.getText();
         String sMes = mes.getText();
         String sAno = ano.getText();
 
+        //
         // Revisamos que tengamos datos
+        //
         if (sDia.isBlank() || sMes.isBlank() || sAno.isBlank()) {
             System.out.println("Los campos no pueden estar en blanco");
             return;
         }
 
+        //
         // Si el mes o año son con solo un digito, añadimos el 0 que requiere el
         // formato
+        //
         if (sMes.length() == 1) {
             sMes = "0" + sMes;
         }
@@ -43,21 +46,126 @@ public class PrimaryController {
             sDia = "0" + sDia;
         }
 
+        //
+        // Mostramos la edad
+        //
+        final Integer anosPasados = calcularAnosPasados(sDia, sMes, sAno);
+        if (anosPasados == -1) {
+            return; // El error ya se indico en calcularAnosPasados
+        }
+        edad.setText(anosPasados.toString());
+
+
+        //
+        // Volvemos la fecha texto
+        //
+        final String enTexto = convertirATexto(sDia, sMes, sAno);
+        fechaEnTexto.setText(enTexto);
+    }
+
+    private static Integer calcularAnosPasados(String dia,
+                                               String mes,
+                                               String ano) { 
+        //
         // Obtenemos las fechas
-        String sFecha = sAno + "-" + sMes + "-" + sDia;
+        //
+        String sFecha = ano + "-" + mes + "-" + dia;
         LocalDate fecha = null;
         try {
             fecha = LocalDate.parse(sFecha);
         } catch (final DateTimeParseException e) {
             System.out.println("El formato de la fecha es incorrecto");
             System.out.println(e.getMessage());
-            return;
+            return -1;
         }
         LocalDate hoy = LocalDate.now();
         
-        double diasPasados =
-            Duration.between(fecha.atStartOfDay(), hoy.atStartOfDay()).toDays();
+        //
+        // Calculamos nos años que han pasado
+        //
+        Integer anoNacimiento = fecha.getYear();
+        Integer anoActual = hoy.getYear();
+        Integer anosPasados = anoActual - anoNacimiento;
 
-        edad.setText(Double.toString(diasPasados/365));
+        //
+        // Y si no ha cumplido este año, le restamos 1
+        //
+        LocalDate fechaAjustada = fecha.plusYears(anosPasados);
+        if (fechaAjustada.compareTo(hoy) > 0) {
+            anosPasados--;
+        }
+
+        return anosPasados;
     }
+
+    private static String convertirATexto(String sDia,
+                                          String sMes,
+                                          String sAno) { 
+
+        Integer dia = Integer.parseInt(sDia);
+        Integer mes = Integer.parseInt(sMes);
+        Integer ano = Integer.parseInt(sAno);
+
+        
+
+        return "TODO";
+    }
+
+    private static String[] nombresMeses = {
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre"
+    };
+
+    private static Boolean esDecimal(Integer n) {
+        return n < 10 && n > -1;
+    }
+    private static String[] nombresDecimales = {
+        "cero",
+        "uno",
+        "dos",
+        "tres",
+        "cuatro",
+        "cinco",
+        "seis",
+        "siete",
+        "ocho",
+        "nueve",
+    };
+
+    private static Boolean esEspecial(Integer n) {
+        return n > 9 && n < 16;
+    }
+    private static String[] nombresNumerosEspeciales = {
+        "dies",
+        "once",
+        "doce",
+        "trece",
+        "catorce",
+        "quince",
+    };
+
+    private static String[] nombresDecenas = {
+        "dies",
+        "veinte",
+        "treinta",
+        "cuarenta",
+        "cincuenta",
+        "sesenta",
+        "setenta",
+        "ochenta",
+        "noventa",
+    };
+
+    // TODO: Uno que calcule los menores a 100, y otro que tome de los 1900 y
+    // 2000
 }
