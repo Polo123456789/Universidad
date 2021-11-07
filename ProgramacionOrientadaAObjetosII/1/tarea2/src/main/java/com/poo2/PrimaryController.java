@@ -21,7 +21,6 @@ public class PrimaryController {
 
     @FXML
     public void calcularEdad() {
-        assert false;
         String sDia = dia.getText();
         String sMes = mes.getText();
         String sAno = ano.getText();
