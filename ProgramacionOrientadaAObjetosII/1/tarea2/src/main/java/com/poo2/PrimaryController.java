@@ -181,7 +181,12 @@ public class PrimaryController {
         final Integer unidades = n % 10;
         final Integer decenas = (n - unidades) / 10;
 
-        return nombresDecenas[decenas - 1] + " y " + nombresDecimales[unidades];
+        final String nombreDecena = nombresDecenas[decenas - 1];
+        final String nombreUnidades = (unidades != 0)
+                                      ? " y " + nombresDecimales[unidades]
+                                      : "";
+
+        return nombreDecena + nombreUnidades;
     }
 
     private static String convertirAnoATexto(final Integer ano) {
