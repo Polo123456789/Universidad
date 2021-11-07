@@ -106,9 +106,11 @@ public class PrimaryController {
         Integer mes = Integer.parseInt(sMes);
         Integer ano = Integer.parseInt(sAno);
 
-        
-
-        return "TODO";
+        return convertirDobleDigitoATexto(dia)
+               + " de "
+               + nombresMeses[mes - 1]
+               + " del "
+               + convertirAnoATexto(ano);
     }
 
     private static String[] nombresMeses = {
@@ -166,6 +168,29 @@ public class PrimaryController {
         "noventa",
     };
 
-    // TODO: Uno que calcule los menores a 100, y otro que tome de los 1900 y
-    // 2000
+    private static String convertirDobleDigitoATexto(final Integer n) {
+        if (esDecimal(n)) {
+            return nombresDecimales[n];
+        }
+
+        
+        if (esEspecial(n)) {
+            return nombresNumerosEspeciales[n - 10];
+        }
+
+        final Integer unidades = n % 10;
+        final Integer decenas = (n - unidades) / 10;
+
+        return nombresDecenas[decenas - 1] + " y " + nombresDecimales[unidades];
+    }
+
+    private static String convertirAnoATexto(final Integer ano) {
+        final Integer digitosBajos = ano % 100;
+        final Integer digitosAltos = (ano - digitosBajos) / 100;
+        final String nombreAno = (digitosAltos == 19)
+                                    ? "mil novecientos "
+                                    : "dos mil ";
+        return nombreAno
+            + convertirDobleDigitoATexto(digitosBajos);
+    }
 }

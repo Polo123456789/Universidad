@@ -1,4 +1,4 @@
-# Hola mundo
+# Tarea 2
 
 Necesita tener Maven instalado, y tener la variable de entorno `JAVA_PATH`
 señalando el path donde tenga el JDK.
