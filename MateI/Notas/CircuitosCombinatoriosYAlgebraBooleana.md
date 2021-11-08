@@ -60,27 +60,27 @@ y maxiterminos.
 
 ![](Imagenes/Ejemplo3Circuito.png)
 
-Diseño de Circuitos
+Diseno de Circuitos
 ===================
 
 Ejercicio 1
 -----------
 
-![](Imagenes/DiseñoCircuitos.png)
+![](Imagenes/DisenoCircuitos.png)
 
 **Entrada:** El estado de los 2 interruptores
 
 **Salida:** 1 si el bombillo debe prender, 0 si no
 
-![](Imagenes/DiseñoCircuitos2.png)
+![](Imagenes/DisenoCircuitos2.png)
 
-![](Imagenes/DiseñoCircuitos3.png)
+![](Imagenes/DisenoCircuitos3.png)
 
 Ejercicio 2
 -----------
 
-![](Imagenes/DiseñoCircuitos4.png)
+![](Imagenes/DisenoCircuitos4.png)
 
-![](Imagenes/DiseñoCircuitos5.png)
+![](Imagenes/DisenoCircuitos5.png)
 
-![](Imagenes/DiseñoCircuitos6.png)
+![](Imagenes/DisenoCircuitos6.png)
