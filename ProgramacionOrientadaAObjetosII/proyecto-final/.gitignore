@@ -1,0 +1,28 @@
+# Parte 1
+encuesta/target/
+encuesta/pom.xml.tag
+encuesta/pom.xml.releaseBackup
+encuesta/pom.xml.versionsBackup
+encuesta/pom.xml.next
+encuesta/release.properties
+encuesta/dependency-reduced-pom.xml
+encuesta/buildNumber.properties
+encuesta/.mvn/timing.properties
+encuesta/.mvn/wrapper/maven-wrapper.jar
+encuesta/.project
+encuesta/.classpath
+
+# Parte 2
+ver_resultados/target/
+ver_resultados/pom.xml.tag
+ver_resultados/pom.xml.releaseBackup
+ver_resultados/pom.xml.versionsBackup
+ver_resultados/pom.xml.next
+ver_resultados/release.properties
+ver_resultados/dependency-reduced-pom.xml
+ver_resultados/buildNumber.properties
+ver_resultados/.mvn/timing.properties
+ver_resultados/.mvn/wrapper/maven-wrapper.jar
+ver_resultados/.project
+ver_resultados/.classpath
+
