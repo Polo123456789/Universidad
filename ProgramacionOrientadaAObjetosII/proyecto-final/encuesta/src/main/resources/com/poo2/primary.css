@@ -1,0 +1,27 @@
+.eye {
+    -fx-fill: #000000;
+}
+
+.sad-face {
+    -fx-fill: #fc1e0a;
+}
+
+.sad-face:hover {
+    -fx-fill: #ff311f;
+}
+
+.neutral-face {
+    -fx-fill: #fcf00a;
+}
+
+.neutral-face:hover {
+    -fx-fill: #fff52b;
+}
+
+.hapyy-face {
+    -fx-fill: #3afc0a;
+}
+
+.hapyy-face:hover {
+    -fx-fill: #4fff24;
+}
