@@ -40,4 +40,6 @@ cat .\scripts\create-db.sql | sqlite3.exe db.sqlite3
 ```
 
 Para que el uso con los programas sea mas facil recomendaria que haga un link
-simbolico de el archivo en las carpetas `encuesta` y `ver_resultados`.
+simbolico de el archivo en las carpetas `encuesta` y `ver_resultados`. En la
+misma carpeta que el readme, en una terminal de administrador, corra
+`scripts/create-symlinks.bat` para crearlos.

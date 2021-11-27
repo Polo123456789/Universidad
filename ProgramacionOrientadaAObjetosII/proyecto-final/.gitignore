@@ -30,3 +30,5 @@ ver_resultados/.classpath
 db.sqlite3
 encuesta/db.sqlite3
 ver_resultados/db.sqlite3
+
+!scripts/create-symlinks.bat
