@@ -26,3 +26,7 @@ ver_resultados/.mvn/wrapper/maven-wrapper.jar
 ver_resultados/.project
 ver_resultados/.classpath
 
+# Para que las actualizaciones de la base de datos no queden en el control
+db.sqlite3
+encuesta/db.sqlite3
+ver_resultados/db.sqlite3
