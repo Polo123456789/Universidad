@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * JavaFX App
@@ -32,7 +33,17 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        launch();
+        try {
+            if (!DB.sqlite3JDBCDriverExists()) {
+                System.err.println("Missing sqlite3 jdbc driver");
+            }
+            DB db = DB.getInstance();
+            db.connect();
+            launch();
+            db.disconnect();
+        } catch (final SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
