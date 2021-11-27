@@ -9,6 +9,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 
+import static com.poo2.Answer.Answers;
+
 public class PrimaryController {
     @FXML
     private Circle happyFaceCircle;
@@ -42,20 +44,20 @@ public class PrimaryController {
 
     @FXML
     void happyFaceCirleClick(MouseEvent event) throws IOException {
-        registerAnswer(Answer.Answers.happy);
+        registerAnswer(Answers.happy);
     }
 
     @FXML
     void neutralFaceCirleClick(MouseEvent event) throws IOException {
-        registerAnswer(Answer.Answers.neutral);
+        registerAnswer(Answers.neutral);
     }
 
     @FXML
     void sadFaceCircleClick(MouseEvent event) throws IOException {
-        registerAnswer(Answer.Answers.sad);
+        registerAnswer(Answers.sad);
     }
 
-    private void registerAnswer(Answer.Answers ans) throws IOException {
+    private void registerAnswer(Answers ans) throws IOException {
         Answer a = new Answer(questionId, ans);
         answers.add(a);
         if (allQuestionsWhereAnswered()) {

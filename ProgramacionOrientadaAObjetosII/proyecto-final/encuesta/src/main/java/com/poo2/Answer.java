@@ -4,9 +4,14 @@ import java.util.Date;
 
 public class Answer {
     public static enum Answers {
-        happy,
-        neutral,
-        sad
+        happy(0),
+        neutral(1),
+        sad(2);
+
+        public final int val;
+        private Answers(int val) {
+            this.val = val;
+        }
     }
 
     private final Integer questionId;
