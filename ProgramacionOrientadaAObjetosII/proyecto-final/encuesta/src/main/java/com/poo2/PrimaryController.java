@@ -23,22 +23,12 @@ public class PrimaryController {
 
     private Integer questionId = -1;
     private List<Answer> answers = new ArrayList<>();
-
-    // Ill guess that the questions should be stored in the db, so they will be
-    // synchronized in between the apps, so this is just temporal for testing
-    //
-    // TODO: Remove
-    final private static String[] questions = {
-        "Nos recomendarias a tu amigos?",
-        "Como valorarias la atencion de nuestro personal?",
-        "Que opinas del tiempo de espera para ser atendido?",
-        "Como valorarias nuestra relacion calidad-precio?",
-        "En general, como valoras la lipmieza de la tienda?",
-    };
+    private ArrayList<Question> questions = null; // Value given in
+                                                  // loadQuestions
 
     @FXML
     void initialize() {
-        // TODO: loadQuestions();
+        loadQuestions();
         nextQuestion();
     }
 
@@ -61,14 +51,7 @@ public class PrimaryController {
         Answer a = new Answer(questionId, ans);
         answers.add(a);
         if (allQuestionsWhereAnswered()) {
-            // TODO: saveAsnwers();
-
-            // This is just to check that the answers where saved correctly
-            // TODO: Remove
-            for (var i : answers) {
-                System.out.println(i);
-            }
-
+            saveAsnwers();
             switchToSecondary();
             return;
         } 
@@ -77,14 +60,22 @@ public class PrimaryController {
 
     private void nextQuestion() {
         questionId++;
-
-        // TODO: Update to use questions from db
-        questionLabel.setText(questions[questionId]);
+        questionLabel.setText(questions.get(questionId).getText());
     }
 
     private Boolean allQuestionsWhereAnswered() {
-        // TODO: Update to use questions from db
-        return questionId == questions.length - 1;
+        return questionId == questions.size()- 1;
+    }
+
+    private void loadQuestions() {
+        questions = DB.getInstance().getQuestions();
+    }
+    
+    private void saveAsnwers() {
+        DB db = DB.getInstance();
+        for (var ans : answers) {
+            db.saveAnswer(ans);
+        }
     }
 
     private void switchToSecondary() throws IOException {

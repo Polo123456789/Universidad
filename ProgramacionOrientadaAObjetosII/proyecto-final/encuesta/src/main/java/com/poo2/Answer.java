@@ -1,9 +1,12 @@
 package com.poo2;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Answer {
     public static enum Answers {
+        undefined(-1),
         happy(0),
         neutral(1),
         sad(2);
@@ -11,6 +14,18 @@ public class Answer {
         public final int val;
         private Answers(int val) {
             this.val = val;
+        }
+
+        public static Answers valueOf(Integer v) {
+            switch (v) {
+                case 0:
+                    return happy;
+                case 1:
+                    return neutral;
+                case 2:
+                    return sad;
+            }
+            return undefined;
         }
     }
 
@@ -30,7 +45,11 @@ public class Answer {
 
     public Integer getQuestionId() {
         return questionId;
+    }
 
+    public String getDate() {
+        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+        return df.format(date);
     }
 
     @Override
