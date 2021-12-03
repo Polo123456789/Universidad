@@ -48,7 +48,7 @@ public class Answer {
     }
 
     public String getDate() {
-        DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         return df.format(date);
     }
 
