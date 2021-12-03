@@ -48,7 +48,7 @@ public class PrimaryController {
     }
 
     private void registerAnswer(Answers ans) throws IOException {
-        Answer a = new Answer(questionId, ans);
+        Answer a = new Answer(questionId + 1, ans);
         answers.add(a);
         if (allQuestionsWhereAnswered()) {
             saveAsnwers();
