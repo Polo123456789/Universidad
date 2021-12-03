@@ -7,17 +7,16 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="700.0" stylesheets="@primary.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poo2.PrimaryController">
    <children>
       <DatePicker fx:id="selectedDateDatePicker" layoutX="68.0" layoutY="20.0" />
       <Label layoutX="28.0" layoutY="24.0" text="Fecha:" />
-      <TableView fx:id="contentTableView" layoutX="28.0" layoutY="54.0" prefHeight="274.0" prefWidth="422.0">
+      <TableView fx:id="contentTableView" layoutX="28.0" layoutY="51.0" prefHeight="274.0" prefWidth="422.0">
         <columns>
-          <TableColumn fx:id="questionTableColumn" prefWidth="195.0" text="Pregunta" />
-          <TableColumn fx:id="happyTableColumn" minWidth="0.0" prefWidth="75.0" text="Bien" />
-            <TableColumn fx:id="neutralTableColumn" prefWidth="75.0" text="Regular" />
-            <TableColumn fx:id="sadTableColumn" prefWidth="75.0" text="Mal" />
+          <TableColumn fx:id="questionTableColumn" editable="false" prefWidth="195.0" resizable="false" sortable="false" text="Pregunta" />
+          <TableColumn fx:id="happyTableColumn" editable="false" minWidth="0.0" prefWidth="75.0" resizable="false" sortable="false" text="Bien" />
+            <TableColumn fx:id="neutralTableColumn" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="Regular" />
+            <TableColumn fx:id="sadTableColumn" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="Mal" />
         </columns>
       </TableView>
       <Label layoutX="28.0" layoutY="339.0" styleClass="bold-text" text="Promedio:" textAlignment="CENTER" />
