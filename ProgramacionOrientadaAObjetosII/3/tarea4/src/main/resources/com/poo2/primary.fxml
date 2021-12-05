@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.poo2.PrimaryController">
+   <children>
+      <TableView fx:id="booksTableView" prefHeight="400.0" prefWidth="480.0">
+         <columns>
+            <TableColumn fx:id="nameTableColumn" prefWidth="98.0" resizable="false" text="Nombre" />
+            <TableColumn fx:id="authorTableColumn" prefWidth="90.0" resizable="false" text="Autor" />
+            <TableColumn fx:id="descriptionTableColumn" prefWidth="162.0" resizable="false" text="Descripcion" />
+            <TableColumn fx:id="genereTableColumn" prefWidth="75.0" resizable="false" text="Genero" />
+            <TableColumn fx:id="editionTableColumn" prefWidth="54.0" text="Edicion" />
+         </columns>
+      </TableView>
+      <VBox alignment="CENTER" prefHeight="400.0" prefWidth="320.0" spacing="50.0">
+         <children>
+            <ComboBox fx:id="fieldsComboBox" editable="true" prefWidth="150.0" />
+            <TextField fx:id="valueTextField" maxWidth="300.0" minWidth="280.0" prefWidth="280.0" />
+            <Button fx:id="searchButton" mnemonicParsing="false" onMouseClicked="#searchButtonOnMouseClicked" text="Buscar" />
+            <Button fx:id="createButton" mnemonicParsing="false" onMouseClicked="#createButtonOnMouseClicked" text="Crear libros" />
+         </children>
+      </VBox>
+   </children>
+</HBox>
