@@ -20,16 +20,22 @@ Las 4 actividades genéricas de alto nivel son:
      restricciones de costo y tiempo?
    * El sistema puede integrarse a otros existentes en la organización?
 
-* **Obtención y análisis de requerimientos:** El personal de desarrollo trabajara
-  con los clientes y los usuarios del sistema para determinar el dominio de la
-  aplicación, cuales servicios debe proveer, el rendimiento requerido,
-  restricciones, etc. Este puede ser difícil ya que los `stakeholders` a menudo
-  no conocen realmente lo que desean obtener, o expresan los requerimientos con
-  sus propios términos. También se puede dar el caso que distintos
-  `stakeholders` tengan diferentes requisitos. El método VORD <!--TODO:
-  Definir-->.
+* **Obtención y análisis de requerimientos:** El personal de desarrollo
+  trabajara con los clientes y los usuarios del sistema para determinar el
+  dominio de la aplicación, cuales servicios debe proveer, el rendimiento
+  requerido, restricciones, etc. Este puede ser difícil ya que los
+  `stakeholders` a menudo no conocen realmente lo que desean obtener,
+  o expresan los requerimientos con sus propios términos. También se puede dar
+  el caso que distintos `stakeholders` tengan diferentes requisitos. El método
+  VORD (definir requerimientos orientados al punto de vista) es un marco de
+  trabajo para obtener y analizar requerimientos. Sus etapas principales son:
+   1. Identificación de los puntos de vista
+   2. Estructuración de los puntos de vista: Se estructuran en una jerarquía.
+   3. Documentación: Comprende refinar la descripción de estos.
+   4. Trazado del punto de vista del sistema: Identifica los objetivos en un
+      diseño OO.
 
-* **Especificación y documentación de los requerimientos**
+* **Especificación y documentación de los requerimientos** 
 
 * **Validación de los requerimientos:** Es importante ya que los errores en el
   documento de requerimientos piden conducir a costos excesivos al tenerse que
@@ -52,4 +58,9 @@ Los requerimientos para sistemas grandes son siempre cambiantes, ya que
 usualmente el problema no puede definirse totalmente. Ademas, no es posible
 anticipar la efectos que tendrá el sistema en la organización.
 
-<!--TODO: Complementar con la presentacion-->
+Ademas, los requerimientos cambiaran una vez los usuarios finales experimenten
+el nuevo sistema. Esto gracias a que los requerimientos pueden variar en
+comunidades de usuarios grandes, e incluso algunos pueden ser contradictorios.
+Ademas, las personas que pagan por los sistemas raras veces son las que los
+usan. Y también tiene que tomarse en cuenta que el entorno de negocios
+y técnico de el sistema puede cambiar.
