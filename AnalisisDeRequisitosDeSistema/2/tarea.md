@@ -1,27 +1,133 @@
 ---
-title: "Especificacion de requisitos de software (ERS)"
-date: "07/03/20201"
-author: "Pablo Sanchez Galdamez"
+title: "Actividad 2"
+date: ""
+author: "Pablo Sanchez (Carnet: 21001135)"
 toc: true
+toc-depth: 3
+toc-title: "Contenidos"
+classoption: "book"
 ---
 
-Que es?
-=======
+Que es un ERS?
+==============
 
 Según la wikipedia [-@wikipedia], la ERS es: "una descripción completa del
-sistema que se va a desarrollar."
+sistema que se va a desarrollar".
 
 Según la @iee [p.3], la ERS es: "Una especificación para un producto de
 software, programa, o grupo de programas que realiza ciertas funciones en un
-ambiente especifico"
+ambiente especifico".
 
-Partes importantes
-==================
+En mis propias palabras. La ERS es el documento que describe a detalle todos
+los requisitos que se tienen para determinado software.
+
+Cuales son las consideraciones para producir una buena ERS?
+===========================================================
+
+Según la @iee [p.3-10], hay cierta información que se tiene que tener presente
+al momento de escribir una ERS. Esta incluye:
+
+La naturaleza de la ERS
+-----------------------
+
+Las cuestiones que se tienen que tratar en la ERS son las siguientes:
+
+* *Funcionalidad:* Que es lo que hará el software?
+* *Interfaces externas:* Como es que el software va a interactuar con los
+  usuarios? Con el hardware? Otro software?
+* *Rendimiento:* A que velocidad tiene que correr? Cual debe ser su
+  disponibilidad?
+* *Atributos:* Como la portabilidad, seguridad, mantenibilidad, etc.
+* *Restricciones:* Como limites en los recursos, el ambiente en el que operara,
+  lenguaje en el que tiene que ser implementado, estándares existentes, etc.
+
+El rol de la ERS
+----------------
+
+Como la ERS tiene un rol muy especifico, se tiene que tratar de mantenerla
+dentro de ese rol. Esto significa que:
+
+* Debería definir todos los requisitos del software.
+* No debería describir ningún detalle de la implementación ni el diseño.
+* No debería añadir ninguna restricción adicional al software.
+
+Una buena ERS limita la cantidad de diseños validos, pero no especifica ninguno
+de ellos.
+
+Características de una buena ERS
+--------------------------------
+
+### Correcta
+
+Una ERS es correcta si, y solo si, cada requisito establecido en ella es uno
+que el software debe cumplir.
+
+### Inequívoca
+
+Una ERS es inequívoca si, y solo si, cada requisito establecido en ella tiene
+una única interpretación.
+
+En caso de que un termino pueda tener múltiples significados, este debería ser
+incluido en un glosario donde se especifica una definición.
+
+### Completa
+
+Una ERS es completa si, y solo si, incluye los siguientes elementos:
+
+* Todos los requisitos, ya sea que tengan que ver con la funcionalidad,
+  rendimiento, restricciones, etc.
+* Definiciones de las respuestas del software a todas las clases de datos de
+  entrada en toda clase de situación.
+* Todas las figuras, tablas y diagramas están etiquetados, y se definen todos
+  los términos y unidades de medida.
+
+### Consistente
+
+Una ERS es consistente si, y solo si, los requisitos son consistentes entre si.
+
+### Verificable
+
+Una ERS es verificable si, y solo si, cada uno de los requisitos establecidos
+en ella son verificables.
+
+Un requisito es verificable si, y solo si, existe algún proceso rentable finito
+con el que una persona o máquina puede verificar que el producto de software
+cumple con el requisito.
+
+### Modificable
+
+Una ERS es modificable si, y solo si, su estructura y estilo están hechos de
+una forma en la que cambios a los requisitos puedan hacerse de forma fácil.
+
+### Trazable
+
+Una ERS es trazable si el origen de cada uno de sus requisitos es claro
+y facilita la referencia a cualquiera de los requisitos para un documento
+futuro.
+
+Evolución de la ERS
+-------------------
+
+Puede que la ERS tenga que evolucionar conforme el desarrollo del software
+progrese. Esto ya que puede que sea imposible que se especifiquen todos los
+detalles al inicio del desarrollo, o puede que tengan que hacerse cambios al
+encontrarse con deficiencias o errores en la ERS original.
+
+Gracias a esto, se tienen que tener en consideración 2 cosas:
+
+1. Los requisitos tienen que especificarse de la forma mas completa que se
+   pueda en su momento, incluso si futuras revisiones sean inevitables. En caso
+   de estar incompletos, esto tiene que especificarse.
+2. Un proceso formal tiene que iniciarse para identificar, controlar, reportar,
+   y dar seguimiento a los cambios.
+
+Cuales son las partes de una ERS?
+=================================
 
 Según la @iee [p.10-19], un outline a seguir al escribir una ERS es el
 siguiente:
 
-![](Imagenes/ers-outline.png)
+![](./ers-outline.png)
 
 Aunque menciona que un buen ERS no necesariamente tiene que seguir el outline
 al pie de la letra. Pero que si debería incluir toda la información presentada
@@ -181,22 +287,36 @@ Aquí se enlistan los atributos que son requisitos como por ejemplo:
 2. Potabilidad
 3. Mantenibilidad
 
-Conclusiones
-============
+Conclusión
+==========
 
-Creo que es una herramienta muy buena. Veo que se puede utilizar tanto con un
-ciclo de vida en cascada como con el proceso racional unificado, aunque no veo
-alguna forma de utilizarlo con alguna metodología ágil. 
+Esta me parece una herramienta muy útil, y que puede ser practica en ciertos
+casos. Pero también me parece que es muy rígida.
 
-Personalmente no creo poder entender completamente su utilidad, ya que para la
-mayoría de los proyectivos que he realizado seria mas trabajo hacer el ERS que
-el proyecto en si. Aunque me hubiera gustado saber de el cuando estaba
-realizando mi practica supervisada, ya que me hubiera ayudado mucho a trabajar
-de una forma organizada.
+Ventajas
+--------
+
+Por su misma naturaleza, este deja muy poco espacio a errores y malentendidos
+entre los desarrolladores, usuarios, y los clientes. Ademas, al tener toda la
+información necesaria desde un principio, se puede planear de mejor manera como
+se hará el desarrollo. Esto permite dar unas proyecciones mas exactas a los
+clientes.
+
+Desventajas
+-----------
+
+La creación de una ERS tiene un gran costo inicial. Se requiere de mucho tiempo
+y esfuerzo para crear una de forma correcta. Esto puede no valer la pena para
+proyectos que al final no se vayan a realizar.
+
+Ademas, tengo entendido que el estándar en la industria es trabajar con
+metodologías ágiles. Estas metodologías son abiertas al cambio. Y aunque se
+supone que una buena ERS es modificable, en la practica dudo que sea la mejor
+forma de gestionar esta clase de proyectos.
 
 Bibliografías
 =============
 
 [**Link**](https://polo123456789.github.io/Universidad/FundamentosDeLaContruccionDeSoftware/Tareas/Unidad2/IEEE830.pdf)
-al estandar citado.
+al estándar citado.
 
