@@ -38,4 +38,5 @@ Tipos de requisitos
 Dominio de la información
 =========================
 
-El flujo de la información se representa en la manera en la que los datos cambian al pasar por un sistema. 
+El flujo de la información se representa en la manera en la que los datos
+cambian al pasar por un sistema. 
