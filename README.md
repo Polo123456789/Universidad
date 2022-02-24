@@ -14,5 +14,7 @@
 | Bases de Datos II                              | BDII        |
 | Programacion Orientada a Objetos II            | POOII       |
 | Análisis de requisitos del sistema de software | ARS         |
+| Bases de Datos III                             | BDIII       |
+| Programacion Avanzada                          | PA          |
 
 [Buscar Archivos](/Universidad/search)
