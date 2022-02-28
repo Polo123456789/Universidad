@@ -1,2 +1,4 @@
 *.exe
 *.bat
+# Para las tareas que necesitan su propio repositorio
+otrosRepos/
