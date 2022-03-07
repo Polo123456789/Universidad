@@ -1,3 +1,3 @@
 window.electronAPI.recieveUserName((evt, userName) => {
-    alert(userName)
+    document.getElementById("saludo").innerHTML = `Bienvenido ${userName}`;
 });
