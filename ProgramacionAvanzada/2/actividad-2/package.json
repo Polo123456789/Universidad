@@ -1,0 +1,14 @@
+{
+    "name": "actividad-2",
+    "version": "1.0.0",
+    "description": "Actividad 2 Programacion Avanzada",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "author": "Pablo Sanchez (Carnet: 21001135)",
+    "license": "ISC",
+    "devDependencies": {
+        "electron": "^17.1.0"
+    }
+}

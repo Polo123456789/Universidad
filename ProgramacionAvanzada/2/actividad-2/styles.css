@@ -1,0 +1,41 @@
+html {
+    max-width: 640px;
+}
+
+.form-fields, .form-buttons {
+    display: grid;
+    gap: 10px;
+}
+
+.form-fields {
+    grid-template-columns: 30% auto;
+}
+
+.form-fields > input {
+    height: 1.5rem;
+}
+
+.form-fields > label {
+    text-align: right;
+}
+
+.form-buttons {
+    grid-template-columns: auto auto;
+}
+
+.form-button {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#error-msg {
+    border: dashed red 2px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.invisible {
+    visibility: hidden;
+}
