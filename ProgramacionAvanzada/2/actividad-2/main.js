@@ -13,7 +13,6 @@ const createWindow = () => {
     });
 
     ipcMain.on("say-hello",(evt, userName) => {
-        console.log(`Recieved userName ${userName}`);
         b.loadFile("bienvenido.html")
         b.webContents.on("did-finish-load", () => {
             b.webContents.send("print-username", userName)

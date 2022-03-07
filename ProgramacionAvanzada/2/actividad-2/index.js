@@ -38,7 +38,7 @@ const reportError = (text) => {
 }
 
 const checkUserName = () => {
-    const p = /[a-zA-Z0-9]+/;
+    const p = /[a-zA-Z0-9 ]+/;
     const res = p.exec(userName.value);
     if (res[0] != res.input) {
         reportError(
