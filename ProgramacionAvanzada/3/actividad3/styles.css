@@ -1,6 +1,6 @@
 .climate-card {
     width: 300px;
-    border: 2px solid black;
+    border: 0.5px solid gray;
     border-radius: 25px;
     margin: 5px;
     padding: 5px;
@@ -18,4 +18,48 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+}
+
+form {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    max-width: 640px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    gap: 10px;
+}
+
+form > input {
+    color: black;
+    background-color: white;
+    border: gray solid 0.5px;
+    border-radius: 7.5px;
+    padding: 10px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    width: 72px;
+    height: 72px;
+    border: 5px solid rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    border-left-color: black;
+    margin-left: auto;
+    margin-right: auto;
+
+    animation: spin 1s ease infinite;
+}
+
+#selected-date {
+    text-align: center;
 }

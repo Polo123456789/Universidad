@@ -4,7 +4,7 @@
     "description": "Actividad 3 Programacion Avanzada",
     "main": "main.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "electron ."
     },
     "author": "Pablo Sanchez Galdamez (Carnet: 21001135)",
     "license": "ISC",

@@ -11,15 +11,29 @@
 </head>
 
 <body>
+    <form>
+        <input type="date" name="date" id="date">
+        <input type="button" value="Seleccionar" id="btn-select">
+        <div>
+            <!-- Vacia para que cubra el espacio en el grid -->
+        </div>
+        <input type="button" value="Seleccionar Hoy" id="btn-select-today">
+    </form>
+    <h1 id="selected-date"></h1>
     <div id="result-cards"></div>
     <template id="climate-card-template">
         <div class="climate-card">
-            <h2></h3>
+            <h2></h2>
             <h3></h3>
             <img src="" alt="" class="climate-card-image">
             <p><strong>Temperatura Minima:</strong><span></span></p>
             <p><strong>Temperatura Maxima:</strong><span></span></p>
-            <p></p>
+        </div>
+    </template>
+    <template id="spinner-template">
+        <div>
+            <div class="spinner"></div>
+            <p>Cargando resultados ...</p>
         </div>
     </template>
     <script src="index.js"></script>

@@ -1,6 +1,12 @@
 // @ts-check
 
 /**
+ * La cantidad de milisegundos que tomara "obtener los resultados de la API"
+ * @type number
+ */
+const loadTime = 3500;
+
+/**
  * @typedef {{
  *      imageUrl: string,
  *      description: string
@@ -74,8 +80,45 @@ const generateRandomClimateCard = (time) => {
     return template.innerHTML;
 };
 
-const results = document.querySelector("#result-cards");
+/**
+ * @type HTMLInputElement
+ */
+const date = document.querySelector("#date");
+const selectedDate = document.querySelector("#selected-date");
+const result = document.querySelector("#result-cards");
 
-results.innerHTML = generateRandomClimateCard("Mañana")
-                    + generateRandomClimateCard("Tarde")
-                    + generateRandomClimateCard("Noche");
+const loadSpinner = () => {
+    const template = document.querySelector("#spinner-template");
+    result.innerHTML = template.innerHTML;
+}
+
+document.querySelector("#btn-select").addEventListener("click", () => {
+    if (!date.value) {
+        alert("Tiene que seleccionar una fecha");
+        return false;
+    }
+    loadSpinner();
+    selectedDate.innerHTML = "El clima para " + date.value;
+
+    setTimeout(() => {
+        result.innerHTML = generateRandomClimateCard("Mañana");
+    }, loadTime);
+});
+
+document.querySelector("#btn-select-today").addEventListener("click", () => {
+    const today = new Date();
+    
+    loadSpinner();
+    selectedDate.innerHTML = "El clima para "
+                             + today.getFullYear().toString()
+                             + "-"
+                             + (today.getMonth() + 1).toString()
+                             + "-"
+                             + today.getDate().toString();
+
+    setTimeout(() => {
+        result.innerHTML = generateRandomClimateCard("Mañana")
+                           + generateRandomClimateCard("Tarde")
+                           + generateRandomClimateCard("Noche");
+    }, loadTime);
+});
