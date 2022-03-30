@@ -1,0 +1,8 @@
+-Weverything
+-Wno-c++98-compat-pedantic
+-Wno-c++98-compat
+-Wno-global-constructors
+-Wno-exit-time-destructors
+-Wno-documentation-unknown-command
+-std=c++17
+-IC:\Users\pabsa\source\boost_1_76_0

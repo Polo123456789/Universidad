@@ -1,0 +1,6 @@
+producto
+id int
+nombre varchar(45)
+precio decimal(7,2)
+existencias int
+proveedor_id int
