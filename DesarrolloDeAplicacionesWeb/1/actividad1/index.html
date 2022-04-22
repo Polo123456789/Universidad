@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Actividad 1</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Actividad 1</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
+                    aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav ms-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-label="Github" href="https://github.com/Polo123456789">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                    class="bi bi-github" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container px-2 py-3">
+            <div class="row flex-lg-row-reverse align-items-center g-5 my-2 py-2 shadow rounded">
+                <div class="col-10 col-sm-8 col-lg-6 my-auto mx-auto">
+                    <img src="image/foto-perfil.png" class="d-block mx-lg-auto my-2 img-fluid shadow rounded"
+                        alt="Foto del autor" width="700" height="500" loading="lazy">
+                </div>
+                <div class="col-lg-6 my-auto">
+                    <h1 class="display-5 fw-bold lh-1 mb-3 text-center">Pablo Sanchez</h1>
+                    <p class="lead">
+                    <ul>
+                        <li><strong>Carnet:</strong>&nbsp; 21001135</li>
+                        <li><strong>Curso:</strong>&nbsp; Desarrollo de aplicaciones web</li>
+                        <li><strong>Carrera:</strong>&nbsp; Técnico en Desarrollo de Software</li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="container px-2 py-3">
+            <h3 class="text-center">Biografía</h3>
+            <p>
+                Naci el 11 de septiembre del 2002. Lo largo de mi vida, estudie en:
+            </p>
+            <ul>
+                <li>Kindergarden Decroli</li>
+                <li>Ameritec</li>
+                <li>Bilingue el prado</li>
+            </ul>
+            <p>
+                Y actualmente estudio desarrollo de software en la universidad Galileo.
+            </p>
+        </section>
+        <section class="container px-2 py-3">
+            <h3 class="text-center">Cursos actuales</h3>
+            <div class="d-flex flex-row flex-wrap justify-content-evenly">
+                <display-card img="image/webdev.jpg" img-title="Photo by Ilya Pavlov on Unsplash">
+                    <span slot="title">Desarrollo de Aplicaciones Web</span>
+                </display-card>
+                <display-card img="image/methodology.jpg" img-title="Photo by Daria Nepriakhina 🇺 onUnsplash">
+                    <span slot="title">Metodología de Desarrollo de software</span>
+                </display-card>
+                <display-card img="image/quality-control.jpg" img-title="Photo by Sigmund on Unsplash">
+                    <span slot="title">Aseguramiento de Calidad del Desarrollo de Software</span>
+                </display-card>
+            </div>
+        </section>
+        <section class="container px-2 py-3">
+            <h3 class="text-center">Comidas favoritas</h3>
+            <div class="d-flex flex-row flex-wrap justify-content-evenly">
+                <display-card img="image/pizza.jpg" img-title="Photo by Ivan Torres on Unsplash">
+                    <span slot="title">Pizza</span>
+                    <ul slot="description">
+                        <li>Pepperoni</li>
+                        <li>Jamón</li>
+                        <li>Tocino</li>
+                        <li>Carne</li>
+                    </ul>
+                </display-card>
+                <display-card img="image/hamburger.jpg" img-title="Photo by amirali mirhashemian on Unsplash">
+                    <span slot="title">Hamburguesa</span>
+                    <p class="text-center" slot="description">Con todo</p>
+                </display-card>
+            </div>
+        </section>
+        <section class="container px-2 py-3">
+            <h3 class="text-center">Lugares favoritos</h3>
+            <div class="d-flex flex-row flex-wrap justify-content-evenly">
+                <display-card img="image/home.jpg" img-title="Photo by Julian Hochgesang on Unsplash">
+                    <span slot="title">Mi casa</span>
+                    <p class="text-center" slot="description">Ya que no hay lugar como el hogar</p>
+                </display-card>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container-fluid">
+            <p class="text-center text-muted border-top">&copy; 2022 Pablo Sanchez Galdamez</p>
+        </div>
+    </footer>
+
+    <template id="card-template">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <div class="card m-2 p-2" style="max-width: 500px;">
+            <div id="image">
+                <!--
+                    La imagen se añadirá por los props
+                -->
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-center">
+                    <slot name="title"></slot>
+                </h5>
+                <div class="card-text">
+                    <slot name="description"></slot>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/card-component.js"></script>
+</body>
+
+</html>
+
+<!--
+    vim:nowrap
+    vim:textwidth=130
+    vim:colorcolumn=130
+    -->
