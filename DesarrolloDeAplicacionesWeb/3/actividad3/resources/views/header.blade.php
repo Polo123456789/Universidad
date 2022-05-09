@@ -28,3 +28,7 @@
             </div>
         </nav>
     </header>
+
+<!--
+vim:nowrap
+-->
