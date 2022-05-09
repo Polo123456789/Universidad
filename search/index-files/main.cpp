@@ -23,9 +23,9 @@ int main(void) {
             fileList.emplace_back(buffer.data());
         }
 
-        std::cout << "const fileList = [";
+        std::cout << "const fileList = [\n";
         for (const auto& file : fileList) {
-            std::cout << '\'' << file << "', ";
+            std::cout << "\t'" << file << "',\n";
         }
         std::cout << "];";
     } catch (const std::exception& e) {
