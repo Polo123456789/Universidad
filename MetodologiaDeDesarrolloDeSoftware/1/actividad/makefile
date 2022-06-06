@@ -19,13 +19,12 @@ run: $(CLASSES)
 doc: actividad1.docx
 
 actividad1.docx: $(DOC_FILES)
-	@echo Intentando crear actividad1.docx (Requiere pandoc https://pandoc.org/)
+	@echo Intentando crear $@ (Requiere pandoc https://pandoc.org/)
 	-pandoc docs/actividad1.md -o $@
 
 .PHONY: clean
 clean:
-	-del src\*.class
-	-del actividad1.docx
+	@-del src\*.class actividad1.docx actividad1.pdf
 
 .PHONY: package
 package: actividad1-21001135.tar.gz
