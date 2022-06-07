@@ -12,7 +12,7 @@ public class IO {
     }
 
     public static void esperar() {
-        System.out.print("Presione enter para continuar ...");
+        System.out.print("\nPresione enter para continuar ...");
         leerLinea();
     }
 }
