@@ -5,14 +5,19 @@ CLASSES := $(SOURCES:.java=.class)
 
 DOC_FILES := $(wildcard docs/*)
 
-all: $(CLASSES) doc
+.PHONY: all
+all: $(CLASSES)
+
+.PHONY: help
+help:
+	@echo Targets: all, run, doc, clean, package
 
 $(CLASSES): %.class: %.java
-	$(CC) $<
+	@echo Compilando $<
+	@$(CC) $< -cp src
 
 .PHONY: run
 run: $(CLASSES)
-	@cls
 	@-java -cp src Main
 
 .PHONY: doc
@@ -20,7 +25,7 @@ doc: actividad1.docx
 
 actividad1.docx: $(DOC_FILES)
 	@echo Intentando crear $@ (Requiere pandoc https://pandoc.org/)
-	-pandoc docs/actividad1.md -o $@
+	-pandoc --resource-path=docs docs/actividad1.md -o $@
 
 .PHONY: clean
 clean:

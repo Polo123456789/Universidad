@@ -107,8 +107,29 @@ Fase 2: Diseño
 Casos de uso
 ------------
 
+<!--
+* Crear cuenta
+* Iniciar sesión
+* Crear Evento
+* Listar eventos
+* Editar Evento
+* Eliminar Evento
+-->
+
+![](casos-de-uso.jpg)
+
 Clases
 ------
+
+<!--
+* Main
+* Usuario
+* Evento
+* GestorUsuarios
+* GestorEventos
+-->
+
+![](clases.jpg)
 
 Fase 3: Código
 ==============
