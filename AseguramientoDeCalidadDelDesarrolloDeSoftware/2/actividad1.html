@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Actividad 1</title>
+    <style>
+        td { width: 50%; }
+        th { text-align: center; }
+        th[scope=col] {font-size: 1.25em;}
+    </style>
+</head>
+
+<body class="container">
+    <h1 class="text-center mt-2">Actividad 1 Unidad 2</h1>
+    <hr />
+    <p class="text-center">Pablo Sanchez (21001135)</p>
+    <br />
+    <table class="table align-middle">
+        <thead>
+            <th scope="col">Modelo</th>
+            <th scope="col">Ventajas</th>
+            <th scope="col">Desventajas</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Codificar <br/> y corregir</th>
+                <td>
+                    <ul>
+                        <li>Es el mas rápido para problemas pequeños</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Luego de varias correcciones, el código se hace difícil de leer</li>
+                        <li>Software hecho de esta forma es frecuentemente rechazado por los clientes</li>
+                        <li>Es difícil hacer pruebas en el código</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Modelo <br/> en cascada</th>
+                <td>
+                    <ul>
+                        <li>Es sencillo de entender</li>
+                        <li>Es perfecto cuando se tienen de entrada todos los requisitos</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Cada una de las iteraciones son costosas, aun mas si tienen que repetirse</li>
+                        <li>Es muy probable que el software no cumpla con los
+                            requisitos, ya que pasa una gran cantidad de tiempo
+                            desde que se recolectan hasta que se entrega el
+                            software al usuario.</li>
+                        <li>Es bastante inflexible a la hora de incorporar requisitos nuevos</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Desarrollo evolutivo</th>
+                <td>
+                    <ul>
+                        <li>Obtiene una rápida retroalimentacion del usuario</li>
+                        <li>La especificación se hace de forma creciente</li>
+                        <li>Cumple con las necesidades inmediatas del cliente</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>No es efectivo si el sistema se tiene que
+                            desarrollar rápido, ya que se tienen que producir
+                            documentos que reflejen cada versión del
+                            sistema</li>
+                        <li>Los cambios continuos pueden ser prejudiciales para la estructura del software</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Desarrollo formal <br/> de sistemas</th>
+                <td>
+                    <ul>
+                        <li>Es atractivo sobre todo para sistemas donde hay
+                            requisitos de seguridad y confiabilidad
+                            importantes.</li>
+                        <li>Es mejor para trabajar en proyectos grandes</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Requiere de desarrolladores especializados y
+                            experimentados en el proceso para que se pueda
+                            llevar a cabo correctamente</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Desarrollo basado <br/> en reutilización</th>
+                <td>
+                    <ul>
+                        <li>Disminuye el costo y esfuerzo</li>
+                        <li>Reduce el tiempo de entrega</li>
+                        <li>Disminuye los riesgos</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Puede que el software no termine de cumplir con las necesidades del cliente</li>
+                        <li>Los componentes que se adquieren no estan en manos de los desarrolladores</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Desarrollo Incremental</th>
+                <td>
+                    <ul>
+                        <li>Los clientes no esperan hasta el final de
+                            desarrollo para empezar a usar el software</li>
+                        <li>Los clientes pueden aclarar requisitos que no
+                            tengan claros conforme ven el sistema</li>
+                        <li>Las partes mas importantes se entregan primero, lo
+                            que permite que se hagan mas pruebas con estos
+                            módulos, disminuyendo el riesgo de fallos</li>
+                    </ul>
+                </td>
+                <td>
+                    <p>Se tiene que asegurar de que cada incremento:</p>
+                    <ul>
+                        <li>Es pequeño para limitar los riesgos</li>
+                        <li>Incremente la funcionalidad</li>
+                    </ul>
+                    <p>Ademas de que puede ser complicado establecer las
+                       correspondencias entre requisitos e incrementos</p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Desarrollo <br/> en espiral</th>
+                <td>
+                    Este considera explicitamente los riesgos, reduciéndolos considerablemente.
+                </td>
+                <td>
+                    Puede ser muy complicado y ocupar mucho tiempo en proyectos pequeños.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        const toggleContainer = () => document.body.classList.toggle("container");
+        window.addEventListener("beforeprint", toggleContainer);
+        window.addEventListener("afterprint", toggleContainer);
+    </script>
+</body>
+
+</html>
