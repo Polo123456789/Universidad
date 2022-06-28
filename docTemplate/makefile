@@ -20,7 +20,7 @@ $(OUT): $(IN) template.latex
 
 .PHONY: gh-pages-url
 gh-pages-url:
-	@echo Github Pages url: https://polo123456789.github.io/$(GIT_CWD)$(OUT)
+	@echo Github Pages url: https://polo123456789.github.io/Universidad/$(GIT_CWD)$(OUT)
 
 .PHONY: git-root
 git-root:
