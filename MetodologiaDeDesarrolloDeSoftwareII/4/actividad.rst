@@ -62,7 +62,24 @@ Análisis de Costos
 Análisis final
 --------------
 
-.. No se que rayos poner aqui
+Alcance
+~~~~~~~
+
+Debido a que el programa es relativamente sencillo, todas las funcionalidades
+se harán disponibles en la primera versión del software.
+
+Tiempo
+~~~~~~
+
+El proyecto se terminara en 10 horas
+
+Costo
+~~~~~
+
+Por el trabajo, serán Q 525. Y otros Q 1,500 adicionales para obtener un
+teléfono en el que se realizaran pruebas.
+
+Total: Q 2,025
 
 Problema 2 – Reservación
 ========================
@@ -115,3 +132,20 @@ Análisis de Costos
 Análisis final
 --------------
 
+Alcance
+~~~~~~~
+
+Todas las funcionalidades serán entregadas en la primera versión del programa.
+
+Tiempo
+~~~~~~
+
+El proyecto se terminara en 25 horas.
+
+Costo
+~~~~~
+
+Por el trabajo, serán Q 1,310. Adicional a eso por el servidor donde correrá el
+programa serán Q 3,000.
+
+Total: Q 4,310
