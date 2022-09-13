@@ -8,16 +8,16 @@ toc-title: "Paginas"
 <!--
 Paginas:
 
-* ~Inicio de sesión
-* ~Registro
-* ~Dashboard
-* ~Preguntas
-* ~Mi perfil
-* ~Buscar usuarios
-* ~Ver información de usuario
+* Inicio de sesión
+* Registro
+* Dashboard
+* Preguntas
+* Mi perfil
+* Buscar usuarios
+* Ver información de usuario
 * ~Ranking de amigos
 * ~Ranking de administradores (Global)
-* ~Pantalla de configuracion para admins
+* Pantalla de configuracion para admins
 -->
 
 Inicio de sesión
